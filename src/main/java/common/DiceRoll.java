@@ -4,9 +4,9 @@ import java.util.Random;
 
 public class DiceRoll {
 	//TODO: implement this for 5 dice
+	private static Random rand = new Random();
 	
 	private static int value;
-	private static Random rand;
 	private static int roundPoints = 0;
 
 	//is it constructor? Could you please comment what is this doing and why. Couldnot get
@@ -17,7 +17,7 @@ public class DiceRoll {
 //	}
 	 
 	public static int roll() {
-		value = 1; // + rand.nextInt(6);
+		value = rand.nextInt(6);
 		return value;
 	}
 

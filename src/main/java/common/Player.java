@@ -1,16 +1,17 @@
 package common;
 
 public class Player {
-    String name = "OnePlayerGameDummy";
+    public String name = "OnePlayerGameDummy";
     boolean winner;
+    public static int score;
 
     //Player player = new Player();
 
     public static void increaseScore(int points) {
     }
 
-    public static String getScore() {
-        return "current score";
+    public static int getScore() {
+        return score;
     }
 
     public static int[] choise() {
