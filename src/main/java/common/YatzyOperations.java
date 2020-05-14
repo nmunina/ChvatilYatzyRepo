@@ -39,9 +39,9 @@ public class YatzyOperations {
 			System.out.println();
 			System.out.println();
 
-			
+			scanner.close();
 		} //TODO: else {error message}
-		
+
 		return players;
 	}
 //	public String[] createPlayers(int amount) {
@@ -56,5 +56,5 @@ public class YatzyOperations {
 //		return players;
 //	}
 
-	
+
 }

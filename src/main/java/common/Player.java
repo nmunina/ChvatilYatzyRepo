@@ -3,18 +3,21 @@ package common;
 public class Player {
     public String name = "OnePlayerGameDummy";
     boolean winner;
-    public static int score;
+    private int score;
 
     //Player player = new Player();
 
-    public static void increaseScore(int points) {
+    public void increaseScore(int points) {
+        score +=points;
     }
 
-    public static int getScore() {
+
+
+    public int getScore() {
         return score;
     }
 
-    public static int[] choise() {
+    public int[] choise() {
         // wich dice you want to reroll
         // numbers in the array
 
