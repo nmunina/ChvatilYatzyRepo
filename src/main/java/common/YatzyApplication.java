@@ -61,6 +61,7 @@ public class YatzyApplication {
 
 					System.out.println("Thank you, next player turn. Press Enter to continue");
 					//TODO: implement press Enter to continue
+			        scanner.nextLine();
 
 				}
 //				game.gameOver(); //is the game over?
