@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class YatzyOperations {
 	static DiceRoll diceRoll = new DiceRoll();
+	static Scanner scanner = new Scanner(System.in);
 	
 	public static int newRound() {
 		int newRoll = diceRoll.get();
@@ -11,15 +12,28 @@ public class YatzyOperations {
 		return newRoll;
 	}
 	
-	public static String[] createPlayers(int numPlayers) {
-		Scanner scanner = new Scanner(System.in);
-		String[] players = new String[numPlayers];
-		
-		for (int i = 0; i < players.length; i++) {
-			System.out.println("Player " + (i+1) + ":");
-			players[i] = scanner.nextLine();
-		}
+	public static Player[] createPlayers() {
+
+
+		//enter number of players
+		System.out.println("Enter amount of players (1 - 4): ");
+		int numPlayers = scanner.nextInt();
+		Player[] players = new Player[numPlayers];
+
+		if ((numPlayers >= 1) || (numPlayers <= 4)) {
+
+			for (int i = 0; i < players.length; i++) {
+				Player player = new Player();
+
+				System.out.println("Player " + (i+1) + " enter your name :"); // "Player " + (i+1) + " enter your name :" (?)
+				String name = scanner.nextLine();
+				player.name = name;
+				System.out.println("why do not ask?");
+
+			}
+
 		scanner.close();
+		} //TODO: else {error message}
 		
 		return players;
 	}
