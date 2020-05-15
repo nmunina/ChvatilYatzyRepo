@@ -174,7 +174,7 @@ public class SnippetsToTest {
 					combinationsChecked[6] = true;
 				}
 			}
-	        // Regular Straight
+	        // Regular Straight 
 	        for (int i = 0; i < fiveDice.length; i++) {
 				if (fiveDice[i] == (i + 2)) {
 					System.out.println("Score in regular straight: 20");
