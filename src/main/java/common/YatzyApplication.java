@@ -64,6 +64,8 @@ public class YatzyApplication {
 			        scanner.nextLine();
 
 				}
+
+				//TODO the game is over
 //				game.gameOver(); //is the game over?
 //
 //				System.out.println("Your score board after this turn is: ");

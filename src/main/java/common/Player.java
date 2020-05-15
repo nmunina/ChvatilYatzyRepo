@@ -11,12 +11,11 @@ public class Player {
         score +=points;
     }
 
-
-
     public int getScore() {
         return score;
     }
 
+    //TODO player choses what dice to (re)roll
     public int[] choise() {
         // wich dice you want to reroll
         // numbers in the array

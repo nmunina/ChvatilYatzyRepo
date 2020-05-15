@@ -21,11 +21,13 @@ public class DiceRoll {
 		return value;
 	}
 
+	//TODO calculate points from all 5 Dice
 	public static int getPoints() {
-		//here we calculate points from all 5 Dice
 		roundPoints = value;
 		return roundPoints;
 	}
+
+	//TODO calculation of all possible combinations
 
 	public int get() {
 		return (value);

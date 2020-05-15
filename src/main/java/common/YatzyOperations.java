@@ -14,8 +14,6 @@ public class YatzyOperations {
 	}
 	
 	public static Player[] createPlayers() {
-
-
 		//enter number of players
 		System.out.println("Enter amount of players (1 - 4): ");
 		int numPlayers = scanner.nextInt();
