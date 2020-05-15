@@ -35,6 +35,8 @@ public class SnippetsToTest {
 		}
         System.out.println(java.util.Arrays.toString(fiveDice));
         
+        
+        
         for (int i = 0; i < fiveDice.length; i++) {
 			if (fiveDice[i] == 1) {
 				one++;
@@ -56,7 +58,7 @@ public class SnippetsToTest {
 			}	
 		}
         
-        System.out.println("Which score do you want to see?");
+        System.out.println("Which numbers do you want to score in?");
         System.out.println("1. Ones");
         System.out.println("2. Twos");
         System.out.println("3. Threes");
