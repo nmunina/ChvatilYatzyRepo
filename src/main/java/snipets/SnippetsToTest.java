@@ -22,6 +22,10 @@ public class SnippetsToTest {
         System.out.println(value);
         
         
+        
+        
+        int tempScore = 0;
+        // Roll Dice, check score in numbers
         int one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
         
         int[] fiveDice = new int[5];
@@ -66,33 +70,40 @@ public class SnippetsToTest {
 		case 1:
 		{
 			System.out.println("Score in ones: " + (one * 1));
+			tempScore += (one * 1);
 		}
 			break;
 		case 2:
 		{
 			System.out.println("Score in twos: " + (two * 2));
+			tempScore += (two * 2);
 		}
 			break;
 		case 3:
 		{
 			System.out.println("Score in threes: " + (three * 3));
+			tempScore += (three * 3);
 		}
 			break;
 		case 4:
 		{
 			System.out.println("Score in fours: " + (four * 4));
+			tempScore += (four * 4);
 		}
 			break;
 		case 5:
 		{
 			System.out.println("Score in fives: " + (five * 5));
+			tempScore += (five * 5);
 		}
 			break;
 		case 6:
 		{
 			System.out.println("Score in sixes: " + (six * 6));
+			tempScore += (six * 6);
 		}
 			break;
+			
 		default:
 			break;
 		}
