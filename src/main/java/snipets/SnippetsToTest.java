@@ -94,7 +94,6 @@ public class SnippetsToTest {
 		}
 			break;
 		default:
-			System.out.println("No score here.");
 			break;
 		}
         
