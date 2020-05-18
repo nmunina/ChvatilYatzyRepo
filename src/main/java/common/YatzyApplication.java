@@ -15,6 +15,7 @@ public class YatzyApplication {
 		//System.out.println("Here should be the rules. All right. Let's play Yatzy!");
 		// set up the game
 		System.out.println("Now we can start the game. ");
+		Scanner scanner = new Scanner(System.in);
 		Yatzy game = new Yatzy();
 		playingThisGame = YatzyOperations.createPlayers();
 		int[] playerScore = new int[playingThisGame.length];
@@ -80,10 +81,50 @@ public class YatzyApplication {
 			        	}
 			        }
 			        
-			        
-			        
 			        System.out.println("Your dice roll: " + java.util.Arrays.toString(fiveDice));
 					
+			        
+			        // Reroll feature in progress
+			        System.out.println("Would you like to reroll? (Y/N)");
+//			        String choice = scanner.nextLine();
+//			        switch (choice) {
+//					case "y":
+//					case "yes":
+//					case "Y":
+//					case "Yes":
+//						{
+//							System.out.println("How many dice would you like to keep? (1 - 5)");
+//							int keepAmount = scanner.nextInt();
+//							System.out.println("Which dice would you like to keep? Enter the corresponding value and press enter for each die");
+//							int[] firstKeep = new int[keepAmount];
+//							for (int i = 0; i < firstKeep.length; i++) {
+//								temp = scanner.nextInt();
+//								for (int j = 0; j < fiveDice.length; j++) {
+//									if (temp == fiveDice[j]) {
+//										firstKeep[i] = temp; 
+//									}
+//									else {
+//										System.out.println("You didn't roll that number.");
+//									}
+//								}
+//								
+//							}
+//							
+//							
+//							
+//						}
+//						break;
+//					case "N":
+//					case "n":
+//					case "no":
+//					case "No":
+//					{
+//						
+//					}
+//						break;
+//					default:
+//						break;
+//					}
 
 					System.out.println("Thank you, next player turn. Press Enter to continue");
 					//TODO: implement press Enter to continue
