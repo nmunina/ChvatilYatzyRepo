@@ -48,5 +48,5 @@ Team Chvátil members
 * @alexanderbram
 * @nmunina
 * Axel
-* Omotayo
+* OmotayoAkande
 * Victor
