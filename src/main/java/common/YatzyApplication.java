@@ -19,14 +19,14 @@ public class YatzyApplication {
 		System.out.println("Now we can start the game. ");
 
 		game = new Yatzy(); //new instance for the game is created
-		playersInGame = YatzyOperations.createPlayers(); //first we create the players. Ask for names etc.
+		playersInGame = Yatzy.createPlayers(); //first we create the players. Ask for names etc.
 
 		int[] playerScore = new int[playersInGame.length]; //array of scores is created. One for each player
 		int tempScore = 0;
         int one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
         int temp;
         int[] fiveDice = new int[5]; //
-		
+
 		//this while would be used to have different games within one session. Now it
 		while (doYouWantToPlay) {
 			//keep playing
