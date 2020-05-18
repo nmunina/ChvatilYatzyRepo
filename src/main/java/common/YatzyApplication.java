@@ -8,7 +8,8 @@ public class YatzyApplication {
 	public static void main(String[] args) {
 
 		boolean doYouWantToPlay = true;
-		Player[] playingThisGame; //array of players for this game
+		Player[] playersInGame; //array of players for this game
+		Yatzy game;
 
 		//TODO: How do we play the game. Instructions
 		System.out.println("Here should be the rules. All right. Let's play Yatzy!");
@@ -17,10 +18,10 @@ public class YatzyApplication {
 		// set up the game
 		System.out.println("Now we can start the game. ");
 
-		Yatzy game = new Yatzy(); //new instance for the game is created
-		playingThisGame = YatzyOperations.createPlayers(); //first we create the players. Ask for names etc.
+		game = new Yatzy(); //new instance for the game is created
+		playersInGame = YatzyOperations.createPlayers(); //first we create the players. Ask for names etc.
 
-		int[] playerScore = new int[playingThisGame.length]; //array of scores is created. One for each player
+		int[] playerScore = new int[playersInGame.length]; //array of scores is created. One for each player
 		int tempScore = 0;
         int one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
         int temp;
@@ -34,32 +35,12 @@ public class YatzyApplication {
 			
 			//game.printScoreBoard();
 
-			//while (game.gameOver().equals("notOver")) {
+			//while (game.gameOver().equals("notOver")) { //play 15 times
 
 			//creating players for this particular game and looping each round
-				for (int l = 0; l < playingThisGame.length; l++) {
-					System.out.println("It's your turn player: " + playingThisGame[l].name);
+				for (int l = 0; l < playersInGame.length; l++) {
+					System.out.println("It's your turn player: " + playersInGame[l].name);
 
-//					//kast 1
-//					int result1 = DiceRoll.roll(); //TODO: it should be not stored here!
-//					playingThisGame[i].increaseScore(result1);
-//					System.out.println("Your 1 roll dice show:  " + result1);
-//					//player.increaseScore(DiceRoll.getPoints());
-//					System.out.println("Your score is: " + playingThisGame[i].getScore());
-//
-//					//kast 2
-//					int result2 = DiceRoll.roll(); //TODO: it should be not stored here!
-//					playingThisGame[i].increaseScore(result2);
-//					System.out.println("Your 2 roll dice show: " + result2); // TODO: player selected dice to roll DiceRoll.roll(Player.choise());
-//					//player.increaseScore(DiceRoll.getPoints());
-//					System.out.println("Your score is: " + playingThisGame[i].getScore());
-//
-//					//kast 3
-//					int result3 = DiceRoll.roll(); //TODO: it should be not stored here!
-//					playingThisGame[i].increaseScore(result3);
-//					System.out.println("Your 3 roll dice show " + result3); // TODO: player selected dice to roll DiceRoll.roll(Player.choise());
-//					//player.increaseScore(DiceRoll.getPoints());
-//					System.out.println("Your score is: " +playingThisGame[i].getScore());
 
 					//game.printScoreBoard();
 					
@@ -139,10 +120,6 @@ public class YatzyApplication {
 //
 				// set up a new game (or not)
 				//System.out.println("Do you want to play again? Print Y if you do, or anything else if you are tired.");
-				//TODO Again proplem with scanner next :( It's something dealing with several nextLine() in code
-				// Probably we could use Buffered reader?
-				// BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-//
 //				char response = scanner.next().charAt(0);
 //				doYouWantToPlay = (response == 'Y'); // if Yes then doYouWantToPlay is true;
 //				System.out.println();

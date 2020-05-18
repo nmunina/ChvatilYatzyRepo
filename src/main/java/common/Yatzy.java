@@ -17,6 +17,7 @@ public class Yatzy {
     }
     private boolean isThereAWinner() {
         //TODO: how do we get the winner
+        //compare all players score and make players variable winner = true.
         return false;
     }
 

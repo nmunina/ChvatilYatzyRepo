@@ -6,11 +6,6 @@ public class YatzyOperations {
 	static DiceRoll diceRoll = new DiceRoll();
 	static Scanner scanner = new Scanner(System.in);
 	static Player[] players;
-	
-	public static int newRound() {
-		int newRoll = diceRoll.roll();
-		return newRoll;
-	}
 
 	//function to create array of players
 	public static Player[] createPlayers() {
@@ -27,36 +22,12 @@ public class YatzyOperations {
 				String name = scanner.next();
 				players[i].name = name;
 			}
-
-			//show who is playing.
-			System.out.print("Welcome players: ");
-			for (Player e: players) {
-				System.out.print(e.name + " ");
-			}
-			System.out.println();
-			System.out.println();
-
 			
-		} //TODO: else {error message}
-		else {
+		} else {
 			System.out.println("Invalid input, try again.");
 			createPlayers();
 		}
 
 		return players;
-		
 	}
-//	public String[] createPlayers(int amount) {
-//		String[] players = new String[amount];
-//		String tempName;
-//		for (int i = 0; i < players.length; i++) {
-//			System.out.println("Player " + (i + 1) + " enter your name: ");
-//			tempName = scanner.nextLine();
-//			players[i] = tempName;
-//		}
-//
-//		return players;
-//	}
-
-
 }

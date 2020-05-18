@@ -64,24 +64,12 @@ public class SnippetsToTest {
 	        System.out.println("Your dice roll: " + java.util.Arrays.toString(fiveDice));
 	        
 	        for (int i = 0; i < fiveDice.length; i++) {
-				if (fiveDice[i] == 1) {
-					one++;
-				}
-				if (fiveDice[i] == 2) {
-					two++;
-				}
-				if (fiveDice[i] == 3) {
-					three++;
-				}
-				if (fiveDice[i] == 4) {
-					four++;
-				}
-				if (fiveDice[i] == 5) {
-					five++;
-				}
-				if (fiveDice[i] == 6) {
-					six++;
-				}	
+				if (fiveDice[i] == 1) { one++; }
+				if (fiveDice[i] == 2) { two++; }
+				if (fiveDice[i] == 3) { three++; }
+				if (fiveDice[i] == 4) { four++; }
+				if (fiveDice[i] == 5) { five++; }
+				if (fiveDice[i] == 6) { six++; }
 			}
 	        
 	        System.out.println("Which numbers do you want to score in?");
@@ -103,49 +91,44 @@ public class SnippetsToTest {
 				break;
 
 			case 2:
-			{
 				System.out.println("Score in twos: " + (two * 2));
 				tempScore += (two * 2);
 				combinationScore[1] = (two * 2);
 				combinationsChecked[1] = true;
-			}
 				break;
+
 			case 3:
-			{
 				System.out.println("Score in threes: " + (three * 3));
 				tempScore += (three * 3);
 				combinationScore[2] = (three * 3);
 				combinationsChecked[2] = true;
-			}
 				break;
+
 			case 4:
-			{
 				System.out.println("Score in fours: " + (four * 4));
 				tempScore += (four * 4);
 				combinationScore[3] = (four * 4);
 				combinationsChecked[3] = true;
-			}
 				break;
+
 			case 5:
-			{
 				System.out.println("Score in fives: " + (five * 5));
 				tempScore += (five * 5);
 				combinationScore[4] = (five * 5);
 				combinationsChecked[4] = true;
-			}
 				break;
+
 			case 6:
-			{
 				System.out.println("Score in sixes: " + (six * 6));
 				tempScore += (six * 6);
 				combinationScore[5] = (six * 6);
 				combinationsChecked[5] = true;
-			}
 				break;
 				
 			default:
 				break;
 			}
+			
 	        // Small Straight
 	        for (int i = 0; i < fiveDice.length; i++) {
 				if (fiveDice[i] == (i + 1)) {
