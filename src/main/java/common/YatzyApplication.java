@@ -3,7 +3,7 @@ package common;
 import java.util.Scanner;
 
 public class YatzyApplication {
-	private final static int ROUNDSNUMBER = 3; //change easilly to have quicker games. Needed for testing
+	private final static int ROUNDSNUMBER = 3; //change easily to have quicker games. Needed for testing
 	public static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
@@ -11,26 +11,24 @@ public class YatzyApplication {
 		boolean doYouWantToPlay = true;
 		Player[] playersInGame; //array of players for this game
 		Yatzy game;
+		int[] playerScore;
 
 		//TODO: How do we play the game. Instructions
 		System.out.println("Here should be the rules. All right. Let's play Yatzy!");
 
-		//start the game
-		// set up the game
 		System.out.println("Now we can start the game. ");
 
-		game = new Yatzy(); //new instance for the game is created
-		playersInGame = Yatzy.createPlayers(); //first we create the players. Ask for names etc.
-
-		int[] playerScore = new int[playersInGame.length]; //array of scores is created. One for each player
-		int tempScore = 0;
-        int one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
-        int temp;
-        int[] fiveDice = new int[5]; //
-
-		//this while would be used to have different games within one session
+		//while (doYouWantToPlay) is used to have different games within one session
 		while (doYouWantToPlay) {
 			//creating players for this particular game
+			game = new Yatzy(); //new instance for the game is created
+			playersInGame = game.createPlayers(); //first we create the players. Ask for names etc.
+			playerScore = new int[playersInGame.length]; //array of scores is created. One for each player
+
+			int tempScore = 0;
+			int one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
+			int temp;
+			int[] fiveDice = new int[5]; //
 			
 			//game.printScoreBoard();
 
@@ -115,21 +113,17 @@ public class YatzyApplication {
 			}
 
 			System.out.println("And the winner is!");
-			break;
-				//TODO the game is over
-//				game.gameOver(); //is the game over?
-//
-//				System.out.println("Your score board after this turn is: ");
-//				game.printScoreBoard();
-//				System.out.println(game.gameOver());
-//
-				// set up a new game (or not)
-				//System.out.println("Do you want to play again? Print Y if you do, or anything else if you are tired.");
-//				char response = scanner.next().charAt(0);
-//				doYouWantToPlay = (response == 'Y'); // if Yes then doYouWantToPlay is true;
-//				System.out.println();
-//				System.out.println();
+			System.out.println();
 
+			//TODO the game is over
+			//game.gameOver(); //is the game over?
+
+			// set up a new game (or not)
+			System.out.println("Do you want to play again? Print Y if you do, or anything else if you are tired.");
+			char response = scanner.next().charAt(0);
+			doYouWantToPlay = (response == 'Y'); // if Yes then doYouWantToPlay is true;
+			System.out.println();
+			System.out.println();
 		}
 
 		System.out.println("Thank you for playing with us");

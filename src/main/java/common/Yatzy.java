@@ -10,7 +10,7 @@ public class Yatzy {
     static Player[] players;
 
     //function to create array of players
-    public static Player[] createPlayers() {
+    public Player[] createPlayers() {
         System.out.println("Enter amount of players (1 - 4): ");
         int numPlayers = scanner.nextInt();
 

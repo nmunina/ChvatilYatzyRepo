@@ -1,5 +1,6 @@
 package snipets;
 
+//here we store scratches that are not longer needed in the code, but we are not ready to delete them
 public class Scratch {
     //					//kast 1
 //					int result1 = DiceRoll.roll(); //TODO: it should be not stored here!
