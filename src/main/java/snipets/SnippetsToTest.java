@@ -32,13 +32,16 @@ public class SnippetsToTest {
         int temp;
         int[] fiveDice = new int[5];
         
+     // Store combinations and what combinations that are checked
+        for (int i = 0; i < combinationsChecked.length; i++) {
+			combinationsChecked[i] = false; 
+		}
+        
         while(gameRunning) {
         	
-	        // Store combinations and what combinations that are checked
 	        
-	        for (int i = 0; i < combinationsChecked.length; i++) {
-				combinationsChecked[i] = false; 
-			}
+	        
+	        
 	        
 	        // Print Combinations checked or not, and score
 	        

@@ -11,57 +11,85 @@ public class YatzyApplication {
 
 		boolean doYouWantToPlay = true;
 		Player[] playingThisGame;
-
 		//TODO: How do we play the game. Instructions
 		
 		//start the game
-		
+		//System.out.println("Here should be the rules. All right. Let's play Yatzy!");
+		// set up the game
+		System.out.println("Now we can start the game. ");
+		Yatzy game = new Yatzy();
+		playingThisGame = YatzyOperations.createPlayers();
+		int[] playerScore = new int[playingThisGame.length];
+		int tempScore = 0;
+        int one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
+        int temp;
+        int[] fiveDice = new int[5];
 		
 		while (doYouWantToPlay) {
 			//keep playing
 
-			System.out.println("Here should be the rules. All right. Let's play Yatzy!");
+			
 
 			//TODO: decide, how to have Yatzy and YatzyOperations as one class. No need for two classes I think.
-			Yatzy game = new Yatzy();
+			
 
-			// set up the game
-			System.out.println("Now we can start the game. ");
+			
 			game.printScoreBoard(); //implement later
 
 			//while (game.gameOver().equals("notOver")) {
 
 			//creating players for this particular game
-			playingThisGame = YatzyOperations.createPlayers();
-				for (int i = 0; i < playingThisGame.length; i++) {
-					System.out.println("It's your turn player: " + playingThisGame[i].name);
+			
+				for (int l = 0; l < playingThisGame.length; l++) {
+					System.out.println("It's your turn player: " + playingThisGame[l].name);
 
-					//kast 1
-					int result1 = DiceRoll.roll(); //TODO: it should be not stored here!
-					playingThisGame[i].increaseScore(result1);
-					System.out.println("Your 1 roll dice show:  " + result1);
-					//player.increaseScore(DiceRoll.getPoints());
-					System.out.println("Your score is: " + playingThisGame[i].getScore());
-
-					//kast 2
-					int result2 = DiceRoll.roll(); //TODO: it should be not stored here!
-					playingThisGame[i].increaseScore(result2);
-					System.out.println("Your 2 roll dice show: " + result2); // TODO: player selected dice to roll DiceRoll.roll(Player.choise());
-					//player.increaseScore(DiceRoll.getPoints());
-					System.out.println("Your score is: " + playingThisGame[i].getScore());
-
-					//kast 3
-					int result3 = DiceRoll.roll(); //TODO: it should be not stored here!
-					playingThisGame[i].increaseScore(result3);
-					System.out.println("Your 3 roll dice show " + result3); // TODO: player selected dice to roll DiceRoll.roll(Player.choise());
-					//player.increaseScore(DiceRoll.getPoints());
-					System.out.println("Your score is: " +playingThisGame[i].getScore());
+//					//kast 1
+//					int result1 = DiceRoll.roll(); //TODO: it should be not stored here!
+//					playingThisGame[i].increaseScore(result1);
+//					System.out.println("Your 1 roll dice show:  " + result1);
+//					//player.increaseScore(DiceRoll.getPoints());
+//					System.out.println("Your score is: " + playingThisGame[i].getScore());
+//
+//					//kast 2
+//					int result2 = DiceRoll.roll(); //TODO: it should be not stored here!
+//					playingThisGame[i].increaseScore(result2);
+//					System.out.println("Your 2 roll dice show: " + result2); // TODO: player selected dice to roll DiceRoll.roll(Player.choise());
+//					//player.increaseScore(DiceRoll.getPoints());
+//					System.out.println("Your score is: " + playingThisGame[i].getScore());
+//
+//					//kast 3
+//					int result3 = DiceRoll.roll(); //TODO: it should be not stored here!
+//					playingThisGame[i].increaseScore(result3);
+//					System.out.println("Your 3 roll dice show " + result3); // TODO: player selected dice to roll DiceRoll.roll(Player.choise());
+//					//player.increaseScore(DiceRoll.getPoints());
+//					System.out.println("Your score is: " +playingThisGame[i].getScore());
 
 					game.printScoreBoard();
+					
+					for (int i = 0; i < fiveDice.length; i++) {
+						fiveDice[i] = DiceRoll.roll();
+						
+					}
+			        
+			        
+			        for (int i = 1; i < fiveDice.length; i++) {
+			        	for (int j = i; j > 0; j--) {
+			        		if (fiveDice[j] < fiveDice[j - 1]) {
+			        			temp = fiveDice[j];
+			        			fiveDice[j] = fiveDice[j - 1];
+			        			fiveDice[j - 1] = temp;
+			        		}
+			        	}
+			        }
+			        
+			        
+			        
+			        System.out.println("Your dice roll: " + java.util.Arrays.toString(fiveDice));
+					
 
 					System.out.println("Thank you, next player turn. Press Enter to continue");
 					//TODO: implement press Enter to continue
-			        //scanner.nextLine();
+			        scanner.nextLine();
 
 				}
 

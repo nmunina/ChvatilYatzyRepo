@@ -8,8 +8,7 @@ public class YatzyOperations {
 	static Player[] players;
 	
 	public static int newRound() {
-		int newRoll = diceRoll.get();
-		System.out.println(newRoll);
+		int newRoll = diceRoll.roll();
 		return newRoll;
 	}
 	
@@ -17,9 +16,10 @@ public class YatzyOperations {
 		//enter number of players
 		System.out.println("Enter amount of players (1 - 4): ");
 		int numPlayers = scanner.nextInt();
+		
 		players = new Player[numPlayers];
 
-		if ((numPlayers >= 1) || (numPlayers <= 4)) {
+		if ((numPlayers >= 1) && (numPlayers <= 4)) {
 
 			for (int i = 0; i < players.length; i++) {
 				players[i] = new Player();
@@ -37,10 +37,15 @@ public class YatzyOperations {
 			System.out.println();
 			System.out.println();
 
-			scanner.close();
+			
 		} //TODO: else {error message}
+		else {
+			System.out.println("Invalid input, try again.");
+			createPlayers();
+		}
 
 		return players;
+		
 	}
 //	public String[] createPlayers(int amount) {
 //		String[] players = new String[amount];
