@@ -27,12 +27,4 @@ public class Yatzy {
         System.out.println("Here should be a scoreboard");
         System.out.println();
     }
-
-    //how does the game look like
-	//user name(-s)
-	//user score
-	//who is the winner
-
-
-
 }

@@ -38,32 +38,19 @@ public class SnippetsToTest {
 		}
         
         while(gameRunning) {
-        	
-	        
-	        
-	        
 	        
 	        // Print Combinations checked or not, and score
-	        
-	        
 	        for (int i = 0; i < combinations.length; i++) {
 	        	tempBoolString = Boolean.toString(combinationsChecked[i]) + " " + Integer.toString(combinationScore[i]);
 	        	
 				System.out.println(combinations[i] + ": " + tempBoolString);
 			}
-	        
-	        
-	        
-	        
-	        
+
 	        // Roll Dice, check score in numbers
-	        
 	        for (int i = 0; i < fiveDice.length; i++) {
 				fiveDice[i] = DiceRoll.roll();
-				
 			}
-	        
-	        
+
 	        for (int i = 1; i < fiveDice.length; i++) {
 	        	for (int j = i; j > 0; j--) {
 	        		if (fiveDice[j] < fiveDice[j - 1]) {
@@ -74,11 +61,7 @@ public class SnippetsToTest {
 	        	}
 	        }
 	        
-	        
-	        
 	        System.out.println("Your dice roll: " + java.util.Arrays.toString(fiveDice));
-	        
-	        
 	        
 	        for (int i = 0; i < fiveDice.length; i++) {
 				if (fiveDice[i] == 1) {
@@ -113,13 +96,12 @@ public class SnippetsToTest {
 	        
 	        switch (choice) {
 			case 1:
-			{
 				System.out.println("Score in ones: " + (one * 1));
 				tempScore += (one * 1);
 				combinationScore[0] = (one * 1);
 				combinationsChecked[0] = true;
-			}
 				break;
+
 			case 2:
 			{
 				System.out.println("Score in twos: " + (two * 2));

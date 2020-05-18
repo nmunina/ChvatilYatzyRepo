@@ -8,32 +8,31 @@ public class YatzyApplication {
 	public static void main(String[] args) {
 
 		boolean doYouWantToPlay = true;
-		Player[] playingThisGame;
+		Player[] playingThisGame; //array of players for this game
+
 		//TODO: How do we play the game. Instructions
-		
+		System.out.println("Here should be the rules. All right. Let's play Yatzy!");
+
 		//start the game
-		//System.out.println("Here should be the rules. All right. Let's play Yatzy!");
 		// set up the game
 		System.out.println("Now we can start the game. ");
-		Scanner scanner = new Scanner(System.in);
-		Yatzy game = new Yatzy();
-		playingThisGame = YatzyOperations.createPlayers();
-		int[] playerScore = new int[playingThisGame.length];
+
+		Yatzy game = new Yatzy(); //new instance for the game is created
+		playingThisGame = YatzyOperations.createPlayers(); //first we create the players. Ask for names etc.
+
+		int[] playerScore = new int[playingThisGame.length]; //array of scores is created. One for each player
 		int tempScore = 0;
         int one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
         int temp;
-        int[] fiveDice = new int[5];
+        int[] fiveDice = new int[5]; //
 		
+		//this while would be used to have different games within one session. Now it
 		while (doYouWantToPlay) {
 			//keep playing
 
-			
-
 			//TODO: decide, how to have Yatzy and YatzyOperations as one class. No need for two classes I think.
 			
-
-			
-			game.printScoreBoard(); //implement later
+			//game.printScoreBoard();
 
 			//while (game.gameOver().equals("notOver")) {
 
@@ -62,7 +61,7 @@ public class YatzyApplication {
 //					//player.increaseScore(DiceRoll.getPoints());
 //					System.out.println("Your score is: " +playingThisGame[i].getScore());
 
-					game.printScoreBoard();
+					//game.printScoreBoard();
 					
 					// Roll five dice
 					for (int i = 0; i < fiveDice.length; i++) {
@@ -126,8 +125,7 @@ public class YatzyApplication {
 //						break;
 //					}
 
-					System.out.println("Thank you, next player turn. Press Enter to continue");
-					//TODO: implement press Enter to continue
+					System.out.println("Thank you, next turn. Press Enter to continue");
 			        scanner.nextLine();
 
 				}
@@ -140,7 +138,7 @@ public class YatzyApplication {
 //				System.out.println(game.gameOver());
 //
 				// set up a new game (or not)
-				System.out.println("Do you want to play again? Print Y if you do, or anything else if you are tired.");
+				//System.out.println("Do you want to play again? Print Y if you do, or anything else if you are tired.");
 				//TODO Again proplem with scanner next :( It's something dealing with several nextLine() in code
 				// Probably we could use Buffered reader?
 				// BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
