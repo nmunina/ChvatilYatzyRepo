@@ -1,7 +1,5 @@
 package common;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class YatzyApplication {
@@ -38,8 +36,7 @@ public class YatzyApplication {
 
 			//while (game.gameOver().equals("notOver")) {
 
-			//creating players for this particular game
-			
+			//creating players for this particular game and looping each round
 				for (int l = 0; l < playingThisGame.length; l++) {
 					System.out.println("It's your turn player: " + playingThisGame[l].name);
 
@@ -66,12 +63,13 @@ public class YatzyApplication {
 
 					game.printScoreBoard();
 					
+					// Roll five dice
 					for (int i = 0; i < fiveDice.length; i++) {
 						fiveDice[i] = DiceRoll.roll();
 						
 					}
 			        
-			        
+			        //Sort dice from lowest to highest
 			        for (int i = 1; i < fiveDice.length; i++) {
 			        	for (int j = i; j > 0; j--) {
 			        		if (fiveDice[j] < fiveDice[j - 1]) {
