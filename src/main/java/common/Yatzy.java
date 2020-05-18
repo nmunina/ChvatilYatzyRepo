@@ -9,7 +9,6 @@ public class Yatzy {
     static Scanner scanner = new Scanner(System.in);
     static Player[] players;
 
-
     //function to create array of players
     public static Player[] createPlayers() {
         System.out.println("Enter amount of players (1 - 4): ");
@@ -35,7 +34,7 @@ public class Yatzy {
     }
 
 
-    // TODO how do we know who is the winner?
+    // TODO after 15 rounds we choose a winner.
     public String gameOver() {
         boolean didSomeoneWin = isThereAWinner();
 
@@ -46,6 +45,8 @@ public class Yatzy {
         }
 
     }
+
+    //TODO this particular is not needed. Winning mekanism can be implemented in gameOver()
     private boolean isThereAWinner() {
         //TODO: how do we get the winner
         //compare all players score and make players variable winner = true.

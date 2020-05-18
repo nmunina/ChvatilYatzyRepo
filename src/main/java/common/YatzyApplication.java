@@ -3,6 +3,7 @@ package common;
 import java.util.Scanner;
 
 public class YatzyApplication {
+	private final static int ROUNDSNUMBER = 3; //change easilly to have quicker games. Needed for testing
 	public static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
@@ -27,45 +28,41 @@ public class YatzyApplication {
         int temp;
         int[] fiveDice = new int[5]; //
 
-		//this while would be used to have different games within one session. Now it
+		//this while would be used to have different games within one session
 		while (doYouWantToPlay) {
-			//keep playing
-
-			//TODO: decide, how to have Yatzy and YatzyOperations as one class. No need for two classes I think.
+			//creating players for this particular game
 			
 			//game.printScoreBoard();
 
-			//while (game.gameOver().equals("notOver")) { //play 15 times
+			//looping each round
+			for (int round = 0; round < ROUNDSNUMBER; round++) { //play 15 rounds
 
-			//creating players for this particular game and looping each round
+				//players throwing dice
 				for (int l = 0; l < playersInGame.length; l++) {
 					System.out.println("It's your turn player: " + playersInGame[l].name);
 
-
-					//game.printScoreBoard();
-					
 					// Roll five dice
 					for (int i = 0; i < fiveDice.length; i++) {
 						fiveDice[i] = DiceRoll.roll();
-						
+
 					}
-			        
-			        //Sort dice from lowest to highest
-			        for (int i = 1; i < fiveDice.length; i++) {
-			        	for (int j = i; j > 0; j--) {
-			        		if (fiveDice[j] < fiveDice[j - 1]) {
-			        			temp = fiveDice[j];
-			        			fiveDice[j] = fiveDice[j - 1];
-			        			fiveDice[j - 1] = temp;
-			        		}
-			        	}
-			        }
-			        
-			        System.out.println("Your dice roll: " + java.util.Arrays.toString(fiveDice));
-					
-			        
-			        // Reroll feature in progress
-			        System.out.println("Would you like to reroll? (Y/N)");
+
+					//Sort dice from lowest to highest
+					for (int i = 1; i < fiveDice.length; i++) {
+						for (int j = i; j > 0; j--) {
+							if (fiveDice[j] < fiveDice[j - 1]) {
+								temp = fiveDice[j];
+								fiveDice[j] = fiveDice[j - 1];
+								fiveDice[j - 1] = temp;
+							}
+						}
+					}
+
+					System.out.println("Your dice roll: " + java.util.Arrays.toString(fiveDice));
+
+
+					// Reroll feature in progress
+					System.out.println("Would you like to reroll? (Y/N)");
 //			        String choice = scanner.nextLine();
 //			        switch (choice) {
 //					case "y":
@@ -106,11 +103,19 @@ public class YatzyApplication {
 //						break;
 //					}
 
-					System.out.println("Thank you, next turn. Press Enter to continue");
-			        scanner.nextLine();
-
+					// if the last player has thrown dice for the last time, we end the game
+					if (round == ROUNDSNUMBER - 1 && l == playersInGame.length - 1) {
+						System.out.println();
+						System.out.println("Game over. We are counting the score.");
+					} else {
+						System.out.println("Thank you, next turn. Press Enter to continue");
+						scanner.nextLine();
+					}
 				}
+			}
 
+			System.out.println("And the winner is!");
+			break;
 				//TODO the game is over
 //				game.gameOver(); //is the game over?
 //
