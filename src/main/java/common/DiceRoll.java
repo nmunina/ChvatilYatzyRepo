@@ -17,7 +17,7 @@ public class DiceRoll {
 //	}
 	 
 	public static int roll() {
-		value = rand.nextInt(6);
+		value = (int)(Math.random() * 6) + 1;
 		return value;
 	}
 
