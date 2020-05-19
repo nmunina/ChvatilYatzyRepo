@@ -60,7 +60,7 @@ public class YatzyApplication {
 					}
 
 					System.out.println("Your dice roll: " + java.util.Arrays.toString(fiveDice));
-
+					
 
 					// ------------------------------ First Reroll ---------------------------------------
 					System.out.println("Which dice would you like to keep? Enter each number and separate with space");
@@ -89,8 +89,8 @@ public class YatzyApplication {
 					// -------------------------- Second reroll -----------------------------------
 					System.out.println("Which dice would you like to keep? Enter each number and separate with space");
 					String diceToKeep2 = scanner.nextLine();
-					String[] splitDiceToKeep2 = diceToKeep.split(" ");
-					int[] diceKept2 = new int[splitDiceToKeep.length]; // Split the user input into an array
+					String[] splitDiceToKeep2 = diceToKeep2.split(" ");
+					int[] diceKept2 = new int[splitDiceToKeep2.length]; // Split the user input into an array
 					
 					for (int i = 0; i < splitDiceToKeep2.length; i++) { // Loop through the array and parse each int
 						String num = splitDiceToKeep2[i];
@@ -108,7 +108,7 @@ public class YatzyApplication {
 					System.arraycopy(reRoll2, 0, reRollKept2, diceKept2.length, reRoll2.length);
 					
 					
-					System.out.println("Your dice roll: " + java.util.Arrays.toString(reRollKept));					
+					System.out.println("Your dice roll: " + java.util.Arrays.toString(reRollKept2));					
 					
 					
 					// if the last player has thrown dice for the last time, we end the game
