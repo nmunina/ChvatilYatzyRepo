@@ -137,7 +137,7 @@ public class YatzyApplication {
 						System.out.println("Game over. We are counting the score.");
 					} else {
 						playersInGame[l].printPlayersScore();
-						System.out.println("Thank you, next turn. Press Enter to continue");
+						System.out.println("Thank you, next turn. Press Enter to continue.");
 						scanner.nextLine();
 					}
 				}
