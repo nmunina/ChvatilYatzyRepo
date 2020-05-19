@@ -13,8 +13,8 @@ public class DiceRoll {
 	}
 
 	//TODO calculate points from all 5 Dice
-	public static int getPoints() {
-		roundPoints = value;
+	public static int getRoundScore(int[] reRollKept) {
+		roundPoints = reRollKept[0] + reRollKept[1] + reRollKept[2] + reRollKept[3] + reRollKept[4];;
 		return roundPoints;
 	}
 

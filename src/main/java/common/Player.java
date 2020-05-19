@@ -7,11 +7,8 @@ public class Player {
 
     //Player player = new Player();
 
-    public void increaseScore(int points) {
+    public int increasePlayersScore(int points) {
         score +=points;
-    }
-
-    public int getScore() {
         return score;
     }
 
