@@ -1,7 +1,5 @@
 package common;
 
-//import java.beans.JavaBean;
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -85,7 +83,16 @@ public class YatzyApplication {
 					System.arraycopy(diceKept, 0, reRollKept, 0, diceKept.length);
 					System.arraycopy(reRoll1, 0, reRollKept, diceKept.length, reRoll1.length);
 					
-					
+					for (int i = 1; i < reRollKept.length; i++) {
+						for (int j = i; j > 0; j--) {
+							if (reRollKept[j] < reRollKept[j - 1]) {
+								temp = reRollKept[j];
+								reRollKept[j] = reRollKept[j - 1];
+								reRollKept[j - 1] = temp;
+							}
+						}
+					}
+
 					System.out.println("Your dice roll: " + java.util.Arrays.toString(reRollKept));
 					
 					// -------------------------- Second reroll -----------------------------------
@@ -108,7 +115,17 @@ public class YatzyApplication {
 					int[] reRollKept2 = new int[diceKept2.length + reRoll2.length];
 					System.arraycopy(diceKept2, 0, reRollKept2, 0, diceKept2.length);
 					System.arraycopy(reRoll2, 0, reRollKept2, diceKept2.length, reRoll2.length);
-
+					
+					for (int i = 1; i < reRollKept2.length; i++) {
+						for (int j = i; j > 0; j--) {
+							if (reRollKept2[j] < reRollKept2[j - 1]) {
+								temp = reRollKept2[j];
+								reRollKept2[j] = reRollKept2[j - 1];
+								reRollKept2[j - 1] = temp;
+							}
+						}
+					}
+					
 					System.out.println("Your dice roll: " + java.util.Arrays.toString(reRollKept2));
 					System.out.println("Your round score is " + DiceRoll.getRoundScore(reRollKept2));
 					tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(reRollKept2));
