@@ -1,5 +1,7 @@
 package common;
 
+import java.beans.JavaBean;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class YatzyApplication {
@@ -30,6 +32,7 @@ public class YatzyApplication {
 			int temp;
 			int[] fiveDice = new int[5]; //
 			
+			
 			//game.printScoreBoard();
 
 			//looping each round
@@ -59,48 +62,55 @@ public class YatzyApplication {
 					System.out.println("Your dice roll: " + java.util.Arrays.toString(fiveDice));
 
 
-					// Reroll feature in progress
-					System.out.println("Would you like to reroll? (Y/N)");
-//			        String choice = scanner.nextLine();
-//			        switch (choice) {
-//					case "y":
-//					case "yes":
-//					case "Y":
-//					case "Yes":
-//						{
-//							System.out.println("How many dice would you like to keep? (1 - 5)");
-//							int keepAmount = scanner.nextInt();
-//							System.out.println("Which dice would you like to keep? Enter the corresponding value and press enter for each die");
-//							int[] firstKeep = new int[keepAmount];
-//							for (int i = 0; i < firstKeep.length; i++) {
-//								temp = scanner.nextInt();
-//								for (int j = 0; j < fiveDice.length; j++) {
-//									if (temp == fiveDice[j]) {
-//										firstKeep[i] = temp; 
-//									}
-//									else {
-//										System.out.println("You didn't roll that number.");
-//									}
-//								}
-//								
-//							}
-//							
-//							
-//							
-//						}
-//						break;
-//					case "N":
-//					case "n":
-//					case "no":
-//					case "No":
-//					{
-//						
-//					}
-//						break;
-//					default:
-//						break;
-//					}
-
+					// ------------------------------ First Reroll ---------------------------------------
+					System.out.println("Which dice would you like to keep? Enter each number and separate with space");
+					String diceToKeep = scanner.nextLine();
+					String[] splitDiceToKeep = diceToKeep.split(" ");
+					int[] diceKept = new int[splitDiceToKeep.length]; // Split the user input into an array
+					
+					for (int i = 0; i < splitDiceToKeep.length; i++) { // Loop through the array and parse each int
+						String num = splitDiceToKeep[i];
+						diceKept[i] = Integer.parseInt(num);
+					}
+					
+					int[] reRoll1 = new int[5 - diceKept.length];
+					
+					for (int i = 0; i < reRoll1.length; i++) {
+						reRoll1[i] = DiceRoll.roll(); 
+					}					
+					
+					int[] reRollKept = new int[diceKept.length + reRoll1.length];
+					System.arraycopy(diceKept, 0, reRollKept, 0, diceKept.length);
+					System.arraycopy(reRoll1, 0, reRollKept, diceKept.length, reRoll1.length);
+					
+					
+					System.out.println("Your dice roll: " + java.util.Arrays.toString(reRollKept));
+					
+					// -------------------------- Second reroll -----------------------------------
+					System.out.println("Which dice would you like to keep? Enter each number and separate with space");
+					String diceToKeep2 = scanner.nextLine();
+					String[] splitDiceToKeep2 = diceToKeep.split(" ");
+					int[] diceKept2 = new int[splitDiceToKeep.length]; // Split the user input into an array
+					
+					for (int i = 0; i < splitDiceToKeep2.length; i++) { // Loop through the array and parse each int
+						String num = splitDiceToKeep2[i];
+						diceKept2[i] = Integer.parseInt(num);
+					}
+					
+					int[] reRoll2 = new int[5 - diceKept2.length];
+					
+					for (int i = 0; i < reRoll2.length; i++) {
+						reRoll2[i] = DiceRoll.roll(); 
+					}					
+					
+					int[] reRollKept2 = new int[diceKept2.length + reRoll2.length];
+					System.arraycopy(diceKept2, 0, reRollKept2, 0, diceKept2.length);
+					System.arraycopy(reRoll2, 0, reRollKept2, diceKept2.length, reRoll2.length);
+					
+					
+					System.out.println("Your dice roll: " + java.util.Arrays.toString(reRollKept));					
+					
+					
 					// if the last player has thrown dice for the last time, we end the game
 					if (round == ROUNDSNUMBER - 1 && l == playersInGame.length - 1) {
 						System.out.println();
