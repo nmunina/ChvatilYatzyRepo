@@ -1,6 +1,8 @@
 package common;
 
 //import java.beans.JavaBean;
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -106,22 +108,18 @@ public class YatzyApplication {
 					int[] reRollKept2 = new int[diceKept2.length + reRoll2.length];
 					System.arraycopy(diceKept2, 0, reRollKept2, 0, diceKept2.length);
 					System.arraycopy(reRoll2, 0, reRollKept2, diceKept2.length, reRoll2.length);
-					
-					
-					System.out.println("Your dice roll: " + java.util.Arrays.toString(reRollKept2));
 
+					System.out.println("Your dice roll: " + java.util.Arrays.toString(reRollKept2));
 					System.out.println("Your round score is " + DiceRoll.getRoundScore(reRollKept2));
 					tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(reRollKept2));
 					System.out.println("Your game score by now is " + tempScore);
 
-
-
-					
 					// if the last player has thrown dice for the last time, we end the game
 					if (round == ROUNDSNUMBER - 1 && l == playersInGame.length - 1) {
 						System.out.println();
 						System.out.println("Game over. We are counting the score.");
 					} else {
+						playersInGame[l].printPlayersScore();
 						System.out.println("Thank you, next turn. Press Enter to continue");
 						scanner.nextLine();
 					}

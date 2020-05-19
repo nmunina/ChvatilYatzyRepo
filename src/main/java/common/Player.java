@@ -6,6 +6,9 @@ public class Player {
     private int score;
 
     //Player player = new Player();
+    public void printPlayersScore(){
+        System.out.println("printPlayersScore() shows score " + score);
+    }
 
     public int increasePlayersScore(int points) {
         score +=points;
