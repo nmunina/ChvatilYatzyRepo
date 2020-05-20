@@ -65,24 +65,29 @@ public class YatzyApplication {
 					// ------------------------------ First Reroll ---------------------------------------
 					System.out.println("Which dice would you like to keep? Enter each number and separate with space");
 					String diceToKeep = scanner.nextLine();
+
+//					// getting ready for incapsulation
+//					DiceRoll roll = new DiceRoll();
+//					roll.reRoll(diceToKeep);
+
 					String[] splitDiceToKeep = diceToKeep.split(" ");
 					int[] diceKept = new int[splitDiceToKeep.length]; // Split the user input into an array
-					
+
 					for (int i = 0; i < splitDiceToKeep.length; i++) { // Loop through the array and parse each int
 						String num = splitDiceToKeep[i];
 						diceKept[i] = Integer.parseInt(num);
 					}
-					
+
 					int[] reRoll1 = new int[5 - diceKept.length];
-					
+
 					for (int i = 0; i < reRoll1.length; i++) {
-						reRoll1[i] = DiceRoll.roll(); 
-					}					
-					
+						reRoll1[i] = DiceRoll.roll();
+					}
+
 					int[] reRollKept = new int[diceKept.length + reRoll1.length];
 					System.arraycopy(diceKept, 0, reRollKept, 0, diceKept.length);
 					System.arraycopy(reRoll1, 0, reRollKept, diceKept.length, reRoll1.length);
-					
+
 					for (int i = 1; i < reRollKept.length; i++) {
 						for (int j = i; j > 0; j--) {
 							if (reRollKept[j] < reRollKept[j - 1]) {
@@ -97,25 +102,31 @@ public class YatzyApplication {
 					
 					// -------------------------- Second reroll -----------------------------------
 					System.out.println("Which dice would you like to keep? Enter each number and separate with space");
+//					// getting ready for incapsulation
+//					DiceRoll roll2 = new DiceRoll();
+//					diceToKeep = scanner.nextLine();
+//					roll2.reRoll(diceToKeep);
+
 					String diceToKeep2 = scanner.nextLine();
+
 					String[] splitDiceToKeep2 = diceToKeep2.split(" ");
 					int[] diceKept2 = new int[splitDiceToKeep2.length]; // Split the user input into an array
-					
+
 					for (int i = 0; i < splitDiceToKeep2.length; i++) { // Loop through the array and parse each int
 						String num = splitDiceToKeep2[i];
 						diceKept2[i] = Integer.parseInt(num);
 					}
-					
+
 					int[] reRoll2 = new int[5 - diceKept2.length];
-					
+
 					for (int i = 0; i < reRoll2.length; i++) {
-						reRoll2[i] = DiceRoll.roll(); 
-					}					
-					
+						reRoll2[i] = DiceRoll.roll();
+					}
+
 					int[] reRollKept2 = new int[diceKept2.length + reRoll2.length];
 					System.arraycopy(diceKept2, 0, reRollKept2, 0, diceKept2.length);
 					System.arraycopy(reRoll2, 0, reRollKept2, diceKept2.length, reRoll2.length);
-					
+
 					for (int i = 1; i < reRollKept2.length; i++) {
 						for (int j = i; j > 0; j--) {
 							if (reRollKept2[j] < reRollKept2[j - 1]) {
@@ -125,10 +136,17 @@ public class YatzyApplication {
 							}
 						}
 					}
-					
+//
 					System.out.println("Your dice roll: " + java.util.Arrays.toString(reRollKept2));
 					System.out.println("Your round score is " + DiceRoll.getRoundScore(reRollKept2));
 					tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(reRollKept2));
+
+//					//getting ready for incapsulation
+//					System.out.println("Your dice roll: " + java.util.Arrays.toString(reRollKept2));
+//					System.out.println("Your round score is " + DiceRoll.getRoundScore(reRollKept2));
+//					tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(reRollKept2));
+
+
 					System.out.println("Your game score by now is " + tempScore);
 
 					// if the last player has thrown dice for the last time, we end the game
