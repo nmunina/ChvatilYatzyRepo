@@ -1,8 +1,5 @@
 package common;
 
-
-import java.beans.JavaBean;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class YatzyApplication {
