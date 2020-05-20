@@ -1,17 +1,14 @@
 package common;
 
-<<<<<<< HEAD
 import java.util.Scanner;
-=======
+import java.util.stream.*;
 import java.util.Arrays;
 import java.util.Random;
->>>>>>> branch 'develop' of https://github.com/alexanderbram/ChvatilYatzyRepo
 
 public class DiceRoll {
 	
 	private static int value;
 	private static int roundPoints = 0;
-	private static int[] reRollKept;
 	int temp;
 	
 	public static int roll() {
@@ -19,63 +16,49 @@ public class DiceRoll {
 		return value;
 	}
 
-	public int[] reRoll(String diceToKeep) {
-		String[] splitDiceToKeep = diceToKeep.split(" ");
-		int[] diceKept = new int[splitDiceToKeep.length]; // Split the user input into an array
-
-		for (int i = 0; i < splitDiceToKeep.length; i++) { // Loop through the array and parse each int
-			String num = splitDiceToKeep[i];
-			diceKept[i] = Integer.parseInt(num);
-		}
-
-		int[] reRoll1 = new int[5 - diceKept.length];
-
-		for (int i = 0; i < reRoll1.length; i++) {
-			reRoll1[i] = DiceRoll.roll();
-		}
-
-		int[] reRollKept = new int[diceKept.length + reRoll1.length];
-		System.arraycopy(diceKept, 0, reRollKept, 0, diceKept.length);
-		System.arraycopy(reRoll1, 0, reRollKept, diceKept.length, reRoll1.length);
-
-		for (int i = 1; i < reRollKept.length; i++) {
-			for (int j = i; j > 0; j--) {
-				if (reRollKept[j] < reRollKept[j - 1]) {
-					temp = reRollKept[j];
-					reRollKept[j] = reRollKept[j - 1];
-					reRollKept[j - 1] = temp;
-				}
-			}
-		}
-
-		System.out.println("Your dice roll: " + java.util.Arrays.toString(reRollKept));
-		return reRollKept;
-	}
-
 	//TODO calculate points from all 5 Dice
 	public static int getRoundScore(int[] reRollKept) {
-		roundPoints = reRollKept[0] + reRollKept[1] + reRollKept[2] + reRollKept[3] + reRollKept[4];;
+		//roundPoints = reRollKept[0] + reRollKept[1] + reRollKept[2] + reRollKept[3] + reRollKept[4];
+		roundPoints = Arrays.stream(reRollKept).sum(); // More compact, ready for testing
 		return roundPoints;
 	}
-	
+		
 	// First and Second Reroll
 	public int[] reroll(int[] dice) {
 		Scanner scanner = new Scanner(System.in);
 		int temp;
+		int amountToKeep;
 		int choice;
-		
 		System.out.println("How many dice would you like to keep? (1-5)");
-		choice = scanner.nextInt();
-		int[] firstKeep = new int[choice];
+		amountToKeep = scanner.nextInt();
+		int[] firstKeep = new int[5];
+		System.out.println(java.util.Arrays.toString(dice));
 		
-		System.out.println("Would you like to keep ");
-		
-		for (int i = 0; i < 5; i++) {
-			System.out.print("Die number " + (i + 1) + ": " + dice[i] + "? \n 1. Yes \n 2. No\n");
+		for (int k = 0; k < firstKeep.length; k++) {
+
+			System.out.println("Would you like to keep ");
+			System.out.print("Die number " + (k + 1) + ": " + dice[k] + "? \n 1. Yes \n 2. No\n");
 			choice = scanner.nextInt();
 			if (choice == 1) {
-				firstKeep[i] = dice[i];
+				firstKeep[k] = dice[k];
 			}
+			else if (choice == 2) {
+				firstKeep[k] = 0; 
+			}
+			else {
+				System.out.println("Input not recognized! No was chosen by default.");
+				firstKeep[k] = 0; 
+			}
+			
+			for(int i = 0; i < firstKeep.length; i++){
+	            if(firstKeep[i] == 0){
+	                // shifting elements
+	                for(int j = i; j < firstKeep.length - 1; j++){
+	                    firstKeep[j] = firstKeep[j+1];
+	                }
+	                break;
+	            }
+	        }
 		}
 		int[] reRoll1 = new int[5 - firstKeep.length];
 		
