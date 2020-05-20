@@ -1,7 +1,6 @@
 package common;
 
 
-import java.awt.Choice;
 import java.beans.JavaBean;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -61,18 +60,19 @@ public class YatzyApplication {
 							}
 						}
 					}
-					
+
 					System.out.println("Your dice roll: " + java.util.Arrays.toString(fiveDice));
-					scanner = new Scanner(System.in);
+					
 					System.out.println("Would you like to reroll? \n 1. Yes \n 2. No");
 					int choice = scanner.nextInt();
+					
 					
 					if (choice == 1 && firstReroll == false) {
 						firstReroll = true;
 						fiveDice = diceRoll.reroll(fiveDice);
-						
-						Scanner in = new Scanner(System.in);
+						System.out.println(java.util.Arrays.toString(fiveDice));
 						System.out.println("Would you like to reroll again? \n 1. Yes \n 2. No");
+						choice = scanner.nextInt();
 						
 						if (choice == 1 && secondReroll == false) {
 							secondReroll = true;
@@ -101,7 +101,7 @@ public class YatzyApplication {
 					else {
 						System.out.println("Illegal input");
 					
-					System.out.println(java.util.Arrays.toString(fiveDice));
+						System.out.println(java.util.Arrays.toString(fiveDice));
 					}
 					
 					
@@ -109,9 +109,9 @@ public class YatzyApplication {
 					secondReroll = false;
 					
 //					//getting ready for incapsulation
-//					System.out.println("Your dice roll: " + java.util.Arrays.toString(reRollKept2));
-//					System.out.println("Your round score is " + DiceRoll.getRoundScore(reRollKept2));
-//					tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(reRollKept2));
+					System.out.println("Your dice roll: " + java.util.Arrays.toString(fiveDice));
+					System.out.println("Your round score is " + DiceRoll.getRoundScore(fiveDice));
+					tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
 
 
 					System.out.println("Your game score by now is " + tempScore);
@@ -123,7 +123,7 @@ public class YatzyApplication {
 						System.out.println("Game over. We are counting the score.");
 					} else {
 						playersInGame[l].printPlayersScore();
-						System.out.println("Thank you, next turn. Press Enter to continue.");
+						System.out.println("Thank you, next turn. Press Enter to continue.\n");
 						scanner.nextLine();
 					}
 				}
@@ -145,5 +145,6 @@ public class YatzyApplication {
 
 		System.out.println("Thank you for playing with us");
 
+		scanner.close();
 	}
 }

@@ -26,15 +26,13 @@ public class DiceRoll {
 	// First and Second Reroll
 	public int[] reroll(int[] dice) {
 		Scanner scanner = new Scanner(System.in);
+		int tempZero = 0;
 		int temp;
-		int amountToKeep;
 		int choice;
-		System.out.println("How many dice would you like to keep? (1-5)");
-		amountToKeep = scanner.nextInt();
 		int[] firstKeep = new int[5];
 		System.out.println(java.util.Arrays.toString(dice));
 		
-		for (int k = 0; k < firstKeep.length; k++) {
+		for (int k = 0; k < 5; k++) {
 
 			System.out.println("Would you like to keep ");
 			System.out.print("Die number " + (k + 1) + ": " + dice[k] + "? \n 1. Yes \n 2. No\n");
@@ -43,15 +41,15 @@ public class DiceRoll {
 				firstKeep[k] = dice[k];
 			}
 			else if (choice == 2) {
-				firstKeep[k] = 0; 
+				System.out.println("Dice skipped"); 
 			}
 			else {
 				System.out.println("Input not recognized! No was chosen by default.");
-				firstKeep[k] = 0; 
+				System.out.println("Dice skipped");
 			}
 			
 			for(int i = 0; i < firstKeep.length; i++){
-	            if(firstKeep[i] == 0){
+	            if(firstKeep[i] == tempZero){
 	                // shifting elements
 	                for(int j = i; j < firstKeep.length - 1; j++){
 	                    firstKeep[j] = firstKeep[j+1];
@@ -63,7 +61,7 @@ public class DiceRoll {
 		int[] reRoll1 = new int[5 - firstKeep.length];
 		
 		for (int i = 0; i < reRoll1.length; i++) {
-			reRoll1[i] = DiceRoll.roll(); 
+			reRoll1[i] = roll(); 
 		}	
 		
 		int[] firstKeep2 = new int[firstKeep.length + reRoll1.length];
@@ -80,7 +78,6 @@ public class DiceRoll {
 				}
 			}
 		}
-		scanner.close();
 		return firstKeep2;
 		
 	}
