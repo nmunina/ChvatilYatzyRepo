@@ -55,6 +55,7 @@ public class DiceRoll {
 	                for(int j = i; j < firstKeep.length - 1; j++){
 	                    firstKeep[j] = firstKeep[j+1];
 	                }
+	                
 	                break;
 	            }
 	        }
