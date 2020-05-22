@@ -42,6 +42,7 @@ public class DiceRoll {
 			}
 			else if (choice == 2) {
 				System.out.println("Dice skipped"); 
+				firstKeep[k] = tempZero; 
 			}
 			else {
 				System.out.println("Input not recognized! No was chosen by default.");
