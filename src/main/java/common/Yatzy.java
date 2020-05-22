@@ -12,11 +12,26 @@ public class Yatzy {
     //function to create array of players
     public Player[] createPlayers() {
         System.out.println("Enter amount of players (1 - 4): ");
-        int numPlayers = scanner.nextInt();
+
+        //handling InvalidInputException
+        int numPlayers = 0;
+        boolean bError = true;
+        while (bError) {
+            if (scanner.hasNextInt())
+                numPlayers = scanner.nextInt();
+            else {
+                System.out.println("Invalid input, try again.");
+                scanner.next();
+                continue;
+            }
+            bError = false;
+        }
+
 
         players = new Player[numPlayers];
 
         //asking users for their names
+
         if ((numPlayers >= 1) && (numPlayers <= 4)) {
             for (int i = 0; i < players.length; i++) {
                 players[i] = new Player();
@@ -25,10 +40,10 @@ public class Yatzy {
                 players[i].name = name;
             }
 
-        } else {
-            System.out.println("Invalid input, try again.");
-            createPlayers();
-        }
+        } //else {
+//            System.out.println("Invalid input, try again.");
+//            createPlayers();
+//        }
 
         return players;
     }

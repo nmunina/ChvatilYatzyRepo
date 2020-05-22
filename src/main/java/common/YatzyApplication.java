@@ -1,8 +1,5 @@
 package common;
 
-
-import java.beans.JavaBean;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class YatzyApplication {
@@ -96,6 +93,9 @@ public class YatzyApplication {
 						System.out.println("Your round score is " + DiceRoll.getRoundScore(fiveDice));
 						tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
 						System.out.println("Your game score by now is " + tempScore);
+						System.out.println("Thank you, next turn. Press Enter to continue.\n");
+						scanner.nextLine();
+
 					}					
 					
 					else {
@@ -109,12 +109,10 @@ public class YatzyApplication {
 					secondReroll = false;
 					
 //					//getting ready for incapsulation
-					System.out.println("Your dice roll: " + java.util.Arrays.toString(fiveDice));
-					System.out.println("Your round score is " + DiceRoll.getRoundScore(fiveDice));
-					tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
-
-
-					System.out.println("Your game score by now is " + tempScore);
+//					System.out.println("Your dice roll: " + java.util.Arrays.toString(fiveDice));
+//					System.out.println("Your round score is " + DiceRoll.getRoundScore(fiveDice));
+//					tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
+//					System.out.println("Your game score by now is " + tempScore);
 
 
 					// if the last player has thrown dice for the last time, we end the game
@@ -122,9 +120,9 @@ public class YatzyApplication {
 						System.out.println();
 						System.out.println("Game over. We are counting the score.");
 					} else {
-						playersInGame[l].printPlayersScore();
-						System.out.println("Thank you, next turn. Press Enter to continue.\n");
-						scanner.nextLine();
+//						playersInGame[l].printPlayersScore();
+						System.out.println("Line 124: Thank you, next turn. Press Enter to continue.\n");
+//						scanner.nextLine();
 					}
 				}
 			}
