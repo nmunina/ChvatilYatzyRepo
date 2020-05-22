@@ -6,7 +6,7 @@ public class YatzyApplication {
 	private final static int ROUNDSNUMBER = 3; //change easily to have quicker games. Needed for testing
 	public static Scanner scanner = new Scanner(System.in);
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		DiceRoll diceRoll = new DiceRoll();
 		boolean doYouWantToPlay = true;
 		Player[] playersInGame; //array of players for this game
@@ -108,11 +108,11 @@ public class YatzyApplication {
 					firstReroll = false;
 					secondReroll = false;
 					
-//					//getting ready for incapsulation
-//					System.out.println("Your dice roll: " + java.util.Arrays.toString(fiveDice));
-//					System.out.println("Your round score is " + DiceRoll.getRoundScore(fiveDice));
-//					tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
-//					System.out.println("Your game score by now is " + tempScore);
+					//getting ready for incapsulation
+					System.out.println("Your dice roll: " + java.util.Arrays.toString(fiveDice));
+					System.out.println("Your round score is " + DiceRoll.getRoundScore(fiveDice));
+					tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
+					System.out.println("Your game score by now is " + tempScore);
 
 
 					// if the last player has thrown dice for the last time, we end the game
@@ -121,8 +121,9 @@ public class YatzyApplication {
 						System.out.println("Game over. We are counting the score.");
 					} else {
 //						playersInGame[l].printPlayersScore();
-						System.out.println("Line 124: Thank you, next turn. Press Enter to continue.\n");
-//						scanner.nextLine();
+						Thread.sleep(500);
+						System.out.println("Thank you, next turn. Press Enter to continue.\n");
+						scanner.nextLine();
 					}
 				}
 			}

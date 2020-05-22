@@ -29,7 +29,7 @@ public class DiceRoll {
 		int tempZero = 0;
 		int temp;
 		int choice;
-		int[] firstKeep = new int[5];
+		int[] firstKeep = dice;
 		System.out.println(java.util.Arrays.toString(dice));
 		
 		for (int k = 0; k < 5; k++) {
@@ -38,49 +38,49 @@ public class DiceRoll {
 			System.out.print("Die number " + (k + 1) + ": " + dice[k] + "? \n 1. Yes \n 2. No\n");
 			choice = scanner.nextInt();
 			if (choice == 1) {
-				firstKeep[k] = dice[k];
+				System.out.println("Ok, keep this one.");
 			}
 			else if (choice == 2) {
-				System.out.println("Dice skipped"); 
-				firstKeep[k] = tempZero; 
+				firstKeep[k] = roll(); 
 			}
 			else {
-				System.out.println("Input not recognized! No was chosen by default.");
-				System.out.println("Dice skipped");
+				System.out.println("Input not recognized! Yes was chosen by default.");
+				System.out.println("Keep this one.");
 			}
 			
-			for(int i = 0; i < firstKeep.length; i++){
-	            if(firstKeep[i] == tempZero){
-	                // shifting elements
-	                for(int j = i; j < firstKeep.length - 1; j++){
-	                    firstKeep[j] = firstKeep[j+1];
-	                }
-	                
-	                break;
-	            }
-	        }
-		}
-		int[] reRoll1 = new int[5 - firstKeep.length];
+//			for(int i = 0; i < firstKeep.length; i++){
+//	            if(firstKeep[i] == tempZero){
+//	                // shifting elements
+//	                for(int j = i; j < firstKeep.length - 1; j++){
+//	                    firstKeep[j] = firstKeep[j+1];
+//	                }
+//	                
+//	                break;
+//	            }
+//	        }
+//		}
+//		int[] reRoll1 = new int[5 - firstKeep.length];
+//		
+//		for (int i = 0; i < reRoll1.length; i++) {
+//			reRoll1[i] = roll(); 
+//		}	
+//		
+//		int[] firstKeep2 = new int[firstKeep.length + reRoll1.length];
+//		System.arraycopy(firstKeep, 0, firstKeep2, 0, firstKeep.length);
+//		System.arraycopy(reRoll1, 0, firstKeep2, firstKeep.length, reRoll1.length);
+//		
+//		
+//		for (int i = 1; i < firstKeep2.length; i++) {
+//			for (int j = i; j > 0; j--) {
+//				if (firstKeep2[j] < firstKeep2[j - 1]) {
+//					temp = firstKeep2[j];
+//					firstKeep2[j] = firstKeep2[j - 1];
+//					firstKeep2[j - 1] = temp;
+//				}
+//			}
+	}
 		
-		for (int i = 0; i < reRoll1.length; i++) {
-			reRoll1[i] = roll(); 
-		}	
-		
-		int[] firstKeep2 = new int[firstKeep.length + reRoll1.length];
-		System.arraycopy(firstKeep, 0, firstKeep2, 0, firstKeep.length);
-		System.arraycopy(reRoll1, 0, firstKeep2, firstKeep.length, reRoll1.length);
-		
-		
-		for (int i = 1; i < firstKeep2.length; i++) {
-			for (int j = i; j > 0; j--) {
-				if (firstKeep2[j] < firstKeep2[j - 1]) {
-					temp = firstKeep2[j];
-					firstKeep2[j] = firstKeep2[j - 1];
-					firstKeep2[j - 1] = temp;
-				}
-			}
-		}
-		return firstKeep2;
+		return firstKeep;
 		
 	}
 	
