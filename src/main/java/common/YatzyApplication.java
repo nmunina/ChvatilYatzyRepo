@@ -15,9 +15,9 @@ public class YatzyApplication {
 		boolean firstReroll = false, secondReroll = false;
 
 		//TODO: How do we play the game. Instructions
-		System.out.println("Here should be the rules. All right. Let's play Yatzy!");
+		System.out.println("Här är reglerna. Okej. Låt oss spela Yatzy!");
 
-		System.out.println("Now we can start the game. ");
+		System.out.println("Nu kan vi starta spelet. ");
 
 		//while (doYouWantToPlay) is used to have different games within one session
 		while (doYouWantToPlay) {
@@ -36,7 +36,7 @@ public class YatzyApplication {
 
 				//players throwing dice
 				for (int l = 0; l < playersInGame.length; l++) {
-					System.out.println("It's your turn player: " + playersInGame[l].name);
+					System.out.println("Det är din tur spelare: " + playersInGame[l].name);
 
 					// Roll five dice
 					diceRoll = new DiceRoll();
@@ -47,30 +47,30 @@ public class YatzyApplication {
 					//Sort dice from lowest to highest
 					diceRoll.diceSort(fiveDice);
 
-					System.out.println("Your dice roll: " + java.util.Arrays.toString(fiveDice));
+					System.out.println("Din tärning rullar: " + java.util.Arrays.toString(fiveDice));
 					
-					System.out.println("Would you like to reroll? \n 1. Yes \n 2. No");
+					System.out.println("Vill du rullar igen? \n 1. Ja \n 2. Nej");
 					int choice = scanner.nextInt();
 					
 					if (choice == 1 && firstReroll == false) {
 						firstReroll = true;
 						fiveDice = diceRoll.reroll(fiveDice);
 						System.out.println("Your dice roll after first reroll is: " + java.util.Arrays.toString(fiveDice));
-						System.out.println("Would you like to reroll again? \n 1. Yes \n 2. No");
+						System.out.println("Would you like to reroll again? \n 1. Ja \n 2. Nej");
 						choice = scanner.nextInt();
 						
 						if (choice == 1 && secondReroll == false) {
 							secondReroll = true;
 							fiveDice = diceRoll.reroll(fiveDice);
-							System.out.println("Your round score is " + DiceRoll.getRoundScore(fiveDice));
+							System.out.println("Din runda poäng är " + DiceRoll.getRoundScore(fiveDice));
 							tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
-							System.out.println("Your game score by now is " + tempScore);
+							System.out.println("Din spelpoäng är nu" + tempScore);
 
 						}
 						else if (choice == 2) {
-							System.out.println("Your round score is " + DiceRoll.getRoundScore(fiveDice));
+							System.out.println("Din runda poäng är " + DiceRoll.getRoundScore(fiveDice));
 							tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
-							System.out.println("Your game score by now is " + tempScore);
+							System.out.println("Din spelpoäng är nu " + tempScore);
 						}
 						
 						else {
@@ -79,9 +79,9 @@ public class YatzyApplication {
 					}
 
 					else if (choice == 2) {
-						System.out.println("Your round score is " + DiceRoll.getRoundScore(fiveDice));
+						System.out.println("Din runda poäng är " + DiceRoll.getRoundScore(fiveDice));
 						tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
-						System.out.println("Your game score by now is " + tempScore);
+						System.out.println("Din spelpoäng är nu " + tempScore);
 						//System.out.println("Thank you, next turn. Press Enter to continue.\n");
 						scanner.nextLine();
 
@@ -96,31 +96,31 @@ public class YatzyApplication {
 					// if the last player has thrown dice for the last time, we end the game
 					if (round == ROUNDSNUMBER - 1 && l == playersInGame.length - 1) {
 						System.out.println();
-						System.out.println("Game over. We are counting the score.");
+						System.out.println("Spelet över. Vi räknar poängen.");
 					} else {
 //						playersInGame[l].printPlayersScore();
 						Thread.sleep(500);
-						System.out.println("Thank you, next turn. Press Enter to continue.\n");
+						System.out.println("Tack, nästa tur. Tryck på Enter för att fortsätta.\n");
 						scanner.nextLine();
 					}
 				}
 			}
 
-			System.out.println("And the winner is!");
+			System.out.println("Och vinnaren är!");
 			System.out.println();
 
 			//TODO the game is over
 			//game.gameOver(); //is the game over?
 
 			// set up a new game (or not)
-			System.out.println("Do you want to play again? Print Y if you do, or anything else if you are tired.");
+			System.out.println("Vill du spela igen? Skriv ut Y om du gör det, eller något annat om du är trött.");
 			char response = scanner.next().charAt(0);
 			doYouWantToPlay = (response == 'Y'); // if Yes then doYouWantToPlay is true;
 			System.out.println();
 			System.out.println();
 		}
 
-		System.out.println("Thank you for playing with us");
+		System.out.println("Tack för att du spelade med oss");
 
 		scanner.close();
 	}

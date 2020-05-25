@@ -11,7 +11,7 @@ public class Yatzy {
 
     //function to create array of players
     public Player[] createPlayers() {
-        System.out.println("Enter amount of players (1 - 4): ");
+        System.out.println("Välj antal spelare (1 - 4): ");
 
         //handling InvalidInputException
         int numPlayers = 0;
