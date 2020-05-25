@@ -77,19 +77,25 @@ public class SnippetsToTest {
 	        String choice = scanner.nextLine();
 	        // Split into string array
 	        String[] splitChosen = choice.split(" ");
+	        
+	        // Parse the string array into an int array
 	        int[] dieArr = new int[5];
 	        for (int i = 0; i < 5; i++) {
 				dieArr[i] = Integer.parseInt(splitChosen[i]);
 			}
+	        // Just a little pause to build up a suspense
 	        Thread.sleep(2000);
 	        
+	        // Check which dice to reroll
 	        for (int i = 0; i < dieArr.length; i++) {
 				if (dieArr[i] == 0) {
 					fiveDice[i] = DiceRoll.roll();
 				}
 			}
+	        // Print the new array of dice
 	        System.out.println(java.util.Arrays.toString(fiveDice));
-	        // 
+	        
+	        // Waiting for enter to be pressed
 	        scanner.nextLine();
 	        
 	        
