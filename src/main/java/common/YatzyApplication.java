@@ -7,7 +7,7 @@ public class YatzyApplication {
 	public static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) throws InterruptedException {
-		DiceRoll diceRoll = new DiceRoll();
+		DiceRoll diceRoll;
 		boolean doYouWantToPlay = true;
 		Player[] playersInGame; //array of players for this game
 		Yatzy game;
@@ -30,9 +30,6 @@ public class YatzyApplication {
 			int one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
 			int temp;
 			int[] fiveDice = new int[5]; //
-			
-			
-			//game.printScoreBoard();
 
 			//looping each round
 			for (int round = 0; round < ROUNDSNUMBER; round++) { //play 15 rounds
@@ -42,38 +39,33 @@ public class YatzyApplication {
 					System.out.println("It's your turn player: " + playersInGame[l].name);
 
 					// Roll five dice
+					diceRoll = new DiceRoll();
 					for (int i = 0; i < fiveDice.length; i++) {
-						fiveDice[i] = DiceRoll.roll();
-
+						fiveDice[i] = diceRoll.roll();
 					}
 
 					//Sort dice from lowest to highest
-					for (int i = 1; i < fiveDice.length; i++) {
-						for (int j = i; j > 0; j--) {
-							if (fiveDice[j] < fiveDice[j - 1]) {
-								temp = fiveDice[j];
-								fiveDice[j] = fiveDice[j - 1];
-								fiveDice[j - 1] = temp;
-							}
-						}
-					}
+					diceRoll.diceSort(fiveDice);
 
 					System.out.println("Your dice roll: " + java.util.Arrays.toString(fiveDice));
 					
 					System.out.println("Would you like to reroll? \n 1. Yes \n 2. No");
 					int choice = scanner.nextInt();
 					
-					
 					if (choice == 1 && firstReroll == false) {
 						firstReroll = true;
 						fiveDice = diceRoll.reroll(fiveDice);
-						System.out.println(java.util.Arrays.toString(fiveDice));
+						System.out.println("Your dice roll after first reroll is: " + java.util.Arrays.toString(fiveDice));
 						System.out.println("Would you like to reroll again? \n 1. Yes \n 2. No");
 						choice = scanner.nextInt();
 						
 						if (choice == 1 && secondReroll == false) {
 							secondReroll = true;
 							fiveDice = diceRoll.reroll(fiveDice);
+							System.out.println("Your round score is " + DiceRoll.getRoundScore(fiveDice));
+							tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
+							System.out.println("Your game score by now is " + tempScore);
+
 						}
 						else if (choice == 2) {
 							System.out.println("Your round score is " + DiceRoll.getRoundScore(fiveDice));
@@ -85,15 +77,12 @@ public class YatzyApplication {
 							System.out.println("Illegal input");
 						}
 					}
-//					// getting ready for incapsulation
-//					DiceRoll roll = new DiceRoll();
-//					roll.reRoll(diceToKeep);
 
 					else if (choice == 2) {
 						System.out.println("Your round score is " + DiceRoll.getRoundScore(fiveDice));
 						tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
 						System.out.println("Your game score by now is " + tempScore);
-						System.out.println("Thank you, next turn. Press Enter to continue.\n");
+						//System.out.println("Thank you, next turn. Press Enter to continue.\n");
 						scanner.nextLine();
 
 					}					
@@ -103,17 +92,6 @@ public class YatzyApplication {
 					
 						System.out.println(java.util.Arrays.toString(fiveDice));
 					}
-					
-					
-					firstReroll = false;
-					secondReroll = false;
-					
-					//getting ready for incapsulation
-					System.out.println("Your dice roll: " + java.util.Arrays.toString(fiveDice));
-					System.out.println("Your round score is " + DiceRoll.getRoundScore(fiveDice));
-					tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
-					System.out.println("Your game score by now is " + tempScore);
-
 
 					// if the last player has thrown dice for the last time, we end the game
 					if (round == ROUNDSNUMBER - 1 && l == playersInGame.length - 1) {

@@ -24,62 +24,36 @@ public class DiceRoll {
 	}
 		
 	// First and Second Reroll
-	public int[] reroll(int[] dice) {
+	public int[] reroll(int[] fiveDice) throws InterruptedException {
 		Scanner scanner = new Scanner(System.in);
 		int tempZero = 0;
 		int temp;
-		int choice;
-		int[] firstKeep = dice;
-		System.out.println(java.util.Arrays.toString(dice));
-		
-		for (int k = 0; k < 5; k++) {
+		int[] firstKeep;
 
-			System.out.println("Would you like to keep ");
-			System.out.print("Die number " + (k + 1) + ": " + dice[k] + "? \n 1. Yes \n 2. No\n");
-			choice = scanner.nextInt();
-			if (choice == 1) {
-				System.out.println("Ok, keep this one.");
+		System.out.println("Vilka tarningar vill du spara? Skriv 1 for att spara eller 0 for att kasta. T.ex. 0 1 1 0 1 f�r att spara 2a, 3e och 5e t�rningen");
+
+		// Store choices in str
+		String choice = scanner.nextLine();
+		// Split into string array
+		String[] splitChosen = choice.split(" ");
+
+		// Parse the string array into an int array
+		int[] dieArr = new int[5];
+		for (int i = 0; i < 5; i++) {
+			dieArr[i] = Integer.parseInt(splitChosen[i]);
+		}
+		// Just a little pause to build up a suspense
+		Thread.sleep(500);
+
+		// Check which dice to reroll
+		for (int i = 0; i < dieArr.length; i++) {
+			if (dieArr[i] == 0) {
+				fiveDice[i] = DiceRoll.roll();
 			}
-			else if (choice == 2) {
-				firstKeep[k] = roll(); 
-			}
-			else {
-				System.out.println("Input not recognized! Yes was chosen by default.");
-				System.out.println("Keep this one.");
-			}
-			
-//			for(int i = 0; i < firstKeep.length; i++){
-//	            if(firstKeep[i] == tempZero){
-//	                // shifting elements
-//	                for(int j = i; j < firstKeep.length - 1; j++){
-//	                    firstKeep[j] = firstKeep[j+1];
-//	                }
-//	                
-//	                break;
-//	            }
-//	        }
-//		}
-//		int[] reRoll1 = new int[5 - firstKeep.length];
-//		
-//		for (int i = 0; i < reRoll1.length; i++) {
-//			reRoll1[i] = roll(); 
-//		}	
-//		
-//		int[] firstKeep2 = new int[firstKeep.length + reRoll1.length];
-//		System.arraycopy(firstKeep, 0, firstKeep2, 0, firstKeep.length);
-//		System.arraycopy(reRoll1, 0, firstKeep2, firstKeep.length, reRoll1.length);
-//		
-//		
-//		for (int i = 1; i < firstKeep2.length; i++) {
-//			for (int j = i; j > 0; j--) {
-//				if (firstKeep2[j] < firstKeep2[j - 1]) {
-//					temp = firstKeep2[j];
-//					firstKeep2[j] = firstKeep2[j - 1];
-//					firstKeep2[j - 1] = temp;
-//				}
-//			}
-	}
-		
+		}
+
+		firstKeep = fiveDice;
+
 		return firstKeep;
 		
 	}
@@ -90,11 +64,15 @@ public class DiceRoll {
 		return (value);
 	}
 
-
-
-
-
-
-
-
+	public void diceSort(int[] fiveDice) {
+		for (int i = 1; i < fiveDice.length; i++) {
+			for (int j = i; j > 0; j--) {
+				if (fiveDice[j] < fiveDice[j - 1]) {
+					temp = fiveDice[j];
+					fiveDice[j] = fiveDice[j - 1];
+					fiveDice[j - 1] = temp;
+				}
+			}
+		}
+	}
 }

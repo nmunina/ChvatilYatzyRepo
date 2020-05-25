@@ -3,7 +3,7 @@ package snipets;
 import common.DiceRoll;
 import common.Player;
 
-import java.beans.JavaBean;
+//import java.beans.JavaBean;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -70,7 +70,7 @@ public class SnippetsToTest {
 	        		}
 	        	}
 	        }
-	        System.out.println("Vilka tärningar vill du spara? Skriv 1 för att spara eller 0 för att kasta. T.ex. 0 1 1 0 1 för att spara 2a, 3e och 5e tärningen");
+	        System.out.println("Vilka tarningar vill du spara? Skriv 1 for att spara eller 0 for att kasta. T.ex. 0 1 1 0 1 fï¿½r att spara 2a, 3e och 5e tï¿½rningen");
 	        System.out.println(java.util.Arrays.toString(fiveDice));
 	        
 	        // Store choices in str
