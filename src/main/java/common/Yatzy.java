@@ -20,7 +20,7 @@ public class Yatzy {
             if (scanner.hasNextInt())
                 numPlayers = scanner.nextInt();
             else {
-                System.out.println("Invalid input, try again.");
+                System.out.println("Felaktig input, försök igen.");
                 scanner.next();
                 continue;
             }
@@ -35,7 +35,7 @@ public class Yatzy {
         if ((numPlayers >= 1) && (numPlayers <= 4)) {
             for (int i = 0; i < players.length; i++) {
                 players[i] = new Player();
-                System.out.println("Player " + (i+1) + " enter your name :"); // "Player " + (i+1) + " enter your name :" (?)
+                System.out.println("Spelare " + (i+1) + " ange ditt namn :"); // "Player " + (i+1) + " enter your name :" (?)
                 String name = scanner.next();
                 players[i].name = name;
             }
@@ -54,9 +54,9 @@ public class Yatzy {
         boolean didSomeoneWin = isThereAWinner();
 
         if(didSomeoneWin) {
-            return "We have a winner! The winner is " + this.winner + "'s";
+            return "Vi har en vinnare! Vinnaren är " + this.winner + "'s";
         } else {
-            return "notOver";
+            return "inte Över";
         }
 
     }
@@ -72,7 +72,7 @@ public class Yatzy {
     //TODO fill in the scoreboard
     public void printScoreBoard() {
         System.out.println();
-        System.out.println("Here should be a scoreboard");
+        System.out.println("Här borde vara en resultattavla");
         System.out.println();
     }
 }
