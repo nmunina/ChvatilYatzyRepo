@@ -18,176 +18,175 @@ public class SnippetsToTest {
 
 	public static void main(String[] args) throws InterruptedException {
 
-        value = rand.nextInt(6);
-        System.out.println(value);
-        
-        boolean gameRunning = true;
-        boolean[] combinationsChecked = new boolean[15];
-        int[] combinationScore = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-        String[] combinations = {"Ones", "Twos", "Threes", "Fours", "Fives", "Sixes", "Pair", "Two Pair", 
-        		"Three of a Kind", "Four of a Kind", "Small Straight", "Large Straight", "Full House", 
-        		"Chance", "Yatzy"};
-        String tempBoolString;
-        int tempScore = 0;
-        int one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
-        int temp;
-        int[] fiveDice = new int[5];
-        
-     // Store combinations and what combinations that are checked
-        for (int i = 0; i < combinationsChecked.length; i++) {
-			combinationsChecked[i] = false; 
+		value = rand.nextInt(6);
+		System.out.println(value);
+
+		boolean gameRunning = true;
+		boolean[] combinationsChecked = new boolean[15];
+		int[] combinationScore = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		String[] combinations = { "Ones", "Twos", "Threes", "Fours", "Fives", "Sixes", "Pair", "Two Pair",
+				"Three of a Kind", "Four of a Kind", "Small Straight", "Large Straight", "Full House", "Chance",
+				"Yatzy" };
+		String tempBoolString;
+		int tempScore = 0;
+		int one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
+		int temp;
+		int[] fiveDice = new int[5];
+
+		// Store combinations and what combinations that are checked
+		for (int i = 0; i < combinationsChecked.length; i++) {
+			combinationsChecked[i] = false;
 		}
-        
-        while(gameRunning) {
-	        
-        	
-        	
-        	
-        	
-	        // Print Combinations checked or not, and score
-	        for (int i = 0; i < combinations.length; i++) {
-	        	tempBoolString = Boolean.toString(combinationsChecked[i]) + " " + Integer.toString(combinationScore[i]);
-	        	
+
+		while (gameRunning) {
+
+			// Print Combinations checked or not, and score
+			for (int i = 0; i < combinations.length; i++) {
+				tempBoolString = Boolean.toString(combinationsChecked[i]) + " " + Integer.toString(combinationScore[i]);
+
 				System.out.println(combinations[i] + ": " + tempBoolString);
 			}
-	        
-	        
-	        
-	        // NEW DICEROLL FEATURE, LESS TEXT AND IN SWEDISH
-	        
-	        //roll five dice
-	        for (int i = 0; i < fiveDice.length; i++) {
+
+			// NEW DICEROLL FEATURE, LESS TEXT AND IN SWEDISH
+
+			// roll five dice
+			for (int i = 0; i < fiveDice.length; i++) {
 				fiveDice[i] = DiceRoll.roll();
 			}
-	        
-	        // sorting dice from smallest to largest
-	        for (int i = 1; i < fiveDice.length; i++) {
-	        	for (int j = i; j > 0; j--) {
-	        		if (fiveDice[j] < fiveDice[j - 1]) {
-	        			temp = fiveDice[j];
-	        			fiveDice[j] = fiveDice[j - 1];
-	        			fiveDice[j - 1] = temp;
-	        		}
-	        	}
-	        }
-	        System.out.println("Vilka tarningar vill du spara? Skriv 1 for att spara eller 0 for att kasta. T.ex. 0 1 1 0 1 fï¿½r att spara 2a, 3e och 5e tï¿½rningen");
-	        System.out.println(java.util.Arrays.toString(fiveDice));
-	        
-	        // Store choices in str
-	        String choice = scanner.nextLine();
-	        // Split into string array
-	        String[] splitChosen = choice.split(" ");
-	        
-	        // Parse the string array into an int array
-	        int[] dieArr = new int[5];
-	        for (int i = 0; i < 5; i++) {
+
+			// sorting dice from smallest to largest
+			for (int i = 1; i < fiveDice.length; i++) {
+				for (int j = i; j > 0; j--) {
+					if (fiveDice[j] < fiveDice[j - 1]) {
+						temp = fiveDice[j];
+						fiveDice[j] = fiveDice[j - 1];
+						fiveDice[j - 1] = temp;
+					}
+				}
+			}
+			System.out.println(
+					"Vilka tarningar vill du spara? Skriv 1 for att spara eller 0 for att kasta. T.ex. 0 1 1 0 1 fï¿½r att spara 2a, 3e och 5e tï¿½rningen");
+			System.out.println(java.util.Arrays.toString(fiveDice));
+
+			// Store choices in str
+			String choice = scanner.nextLine();
+			// Split into string array
+			String[] splitChosen = choice.split(" ");
+
+			// Parse the string array into an int array
+			int[] dieArr = new int[5];
+			for (int i = 0; i < 5; i++) {
 				dieArr[i] = Integer.parseInt(splitChosen[i]);
 			}
-	        // Just a little pause to build up a suspense
-	        Thread.sleep(2000);
-	        
-	        // Check which dice to reroll
-	        for (int i = 0; i < dieArr.length; i++) {
+			// Just a little pause to build up a suspense
+			Thread.sleep(2000);
+
+			// Check which dice to reroll
+			for (int i = 0; i < dieArr.length; i++) {
 				if (dieArr[i] == 0) {
 					fiveDice[i] = DiceRoll.roll();
 				}
 			}
-	        // Print the new array of dice
-	        System.out.println(java.util.Arrays.toString(fiveDice));
-	        
-	        // Waiting for enter to be pressed
-	        scanner.nextLine();
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
+			// Print the new array of dice
+			System.out.println(java.util.Arrays.toString(fiveDice));
 
-	        // Roll Dice, check score in numbers
-//	        for (int i = 0; i < fiveDice.length; i++) {
-//				fiveDice[i] = DiceRoll.roll();
-//			}
-//
-//	        for (int i = 1; i < fiveDice.length; i++) {
-//	        	for (int j = i; j > 0; j--) {
-//	        		if (fiveDice[j] < fiveDice[j - 1]) {
-//	        			temp = fiveDice[j];
-//	        			fiveDice[j] = fiveDice[j - 1];
-//	        			fiveDice[j - 1] = temp;
-//	        		}
-//	        	}
-//	        }
-//	        
-//	        System.out.println("Your dice roll: " + java.util.Arrays.toString(fiveDice));
-//	        
-//	        for (int i = 0; i < fiveDice.length; i++) {
-//				if (fiveDice[i] == 1) { one++; }
-//				if (fiveDice[i] == 2) { two++; }
-//				if (fiveDice[i] == 3) { three++; }
-//				if (fiveDice[i] == 4) { four++; }
-//				if (fiveDice[i] == 5) { five++; }
-//				if (fiveDice[i] == 6) { six++; }
-//			}
-//	        
-//	        System.out.println("Which numbers do you want to score in?");
-//	        System.out.println("1. Ones");
-//	        System.out.println("2. Twos");
-//	        System.out.println("3. Threes");
-//	        System.out.println("4. Fours");
-//	        System.out.println("5. Fives");
-//	        System.out.println("6. Sixes");
-//	        
-//	        int choice = scanner.nextInt();
-//	        
-//	        switch (choice) {
-//			case 1:
-//				System.out.println("Score in ones: " + (one * 1));
-//				tempScore += (one * 1);
-//				combinationScore[0] = (one * 1);
-//				combinationsChecked[0] = true;
-//				break;
-//
-//			case 2:
-//				System.out.println("Score in twos: " + (two * 2));
-//				tempScore += (two * 2);
-//				combinationScore[1] = (two * 2);
-//				combinationsChecked[1] = true;
-//				break;
-//
-//			case 3:
-//				System.out.println("Score in threes: " + (three * 3));
-//				tempScore += (three * 3);
-//				combinationScore[2] = (three * 3);
-//				combinationsChecked[2] = true;
-//				break;
-//
-//			case 4:
-//				System.out.println("Score in fours: " + (four * 4));
-//				tempScore += (four * 4);
-//				combinationScore[3] = (four * 4);
-//				combinationsChecked[3] = true;
-//				break;
-//
-//			case 5:
-//				System.out.println("Score in fives: " + (five * 5));
-//				tempScore += (five * 5);
-//				combinationScore[4] = (five * 5);
-//				combinationsChecked[4] = true;
-//				break;
-//
-//			case 6:
-//				System.out.println("Score in sixes: " + (six * 6));
-//				tempScore += (six * 6);
-//				combinationScore[5] = (six * 6);
-//				combinationsChecked[5] = true;
-//				break;
-//				
-//			default:
-//				break;
+			// Waiting for enter to be pressed
+			scanner.nextLine();
+
+			// Counts the number occurances of the dice
+			for (int i = 0; i < fiveDice.length; i++) {
+				if (fiveDice[i] == 1) {
+					one++;
+				}
+				if (fiveDice[i] == 2) {
+					two++;
+				}
+				if (fiveDice[i] == 3) {
+					three++;
+				}
+				if (fiveDice[i] == 4) {
+					four++;
+				}
+				if (fiveDice[i] == 5) {
+					five++;
+				}
+				if (fiveDice[i] == 6) {
+					six++;
+				}
+			}
+			// Upper score board points
+			System.out.println("Poängval");
+
+			if (one > 0) {
+				System.out.println("1. Ettor");
+			}
+			if (two > 0) {
+				System.out.println("2. Tvåor");
+			}
+			if (three > 0) {
+				System.out.println("3. Treor");
+			}
+			if (four > 0) {
+				System.out.println("4. Fyror");
+			}
+			if (five > 0) {
+				System.out.println("5. Femmor");
+			}
+			if (six > 0) {
+				System.out.println("6. Sexor");
+			}
+
+			int choice2 = scanner.nextInt();
+			if (choice2 == 1 && one > 0) {
+				System.out.println("Score in ones: " + (one * 1));
+				tempScore += (one * 1);
+				combinationScore[0] = (one * 1);
+				combinationsChecked[0] = true;
+			} else if (choice2 == 2 && two > 0) {
+
+				System.out.println("Score in twos: " + (two * 2));
+				tempScore += (two * 2);
+				combinationScore[1] = (two * 2);
+				combinationsChecked[1] = true;
+			}
+
+			else if (choice2 == 3 && three > 0) {
+				System.out.println("Score in threes: " + (three * 3));
+				tempScore += (three * 3);
+				combinationScore[2] = (three * 3);
+				combinationsChecked[2] = true;
+			}
+
+			else if (choice2 == 4 && four > 0) {
+				System.out.println("Score in fours: " + (four * 4));
+				tempScore += (four * 4);
+				combinationScore[3] = (four * 4);
+				combinationsChecked[3] = true;
+			}
+
+			else if (choice2 == 5 && five > 0) {
+				System.out.println("Score in fives: " + (five * 5));
+				tempScore += (five * 5);
+				combinationScore[4] = (five * 5);
+				combinationsChecked[4] = true;
+			}
+
+			else if (choice2 == 5 && five > 0) {
+				System.out.println("Score in sixes: " + (six * 6));
+				tempScore += (six * 6);
+				combinationScore[5] = (six * 6);
+				combinationsChecked[5] = true;
+			}
+
+			else {
+				
+				// TODO
+				/*
+				 * Implement the option to enter a blank score
+				 */
+			}
+
+			// Lower scoreboard points
 //			}
 //			
 //	        // Small Straight
@@ -216,6 +215,6 @@ public class SnippetsToTest {
 //					combinationsChecked[7] = true;
 //				}
 //			}
-        }
-    }
+		}
+	}
 }
