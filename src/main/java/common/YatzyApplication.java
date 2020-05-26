@@ -55,8 +55,8 @@ public class YatzyApplication {
 					if (choice == 1 && firstReroll == false) {
 						firstReroll = true;
 						fiveDice = diceRoll.reroll(fiveDice);
-						System.out.println("Your dice roll after first reroll is: " + java.util.Arrays.toString(fiveDice));
-						System.out.println("Would you like to reroll again? \n 1. Ja \n 2. Nej");
+						System.out.println("Din tärnings rulle efter den första rullar är: " + java.util.Arrays.toString(fiveDice));
+						System.out.println("Vill du rullar igen? \n 1. Ja \n 2. Nej");
 						choice = scanner.nextInt();
 						
 						if (choice == 1 && secondReroll == false) {
@@ -74,7 +74,7 @@ public class YatzyApplication {
 						}
 						
 						else {
-							System.out.println("Illegal input");
+							System.out.println("Felaktig input");
 						}
 					}
 
@@ -88,7 +88,7 @@ public class YatzyApplication {
 					}					
 					
 					else {
-						System.out.println("Illegal input");
+						System.out.println("Felaktig input");
 					
 						System.out.println(java.util.Arrays.toString(fiveDice));
 					}
