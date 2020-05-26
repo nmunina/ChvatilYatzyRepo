@@ -35,6 +35,7 @@ public class DiceRoll {
 		// Store choices in str
 		String choice = scanner.nextLine();
 		// Split into string array
+
 		String[] splitChosen = choice.split(" ");
 
 		// Parse the string array into an int array
@@ -42,6 +43,7 @@ public class DiceRoll {
 		for (int i = 0; i < 5; i++) {
 			dieArr[i] = Integer.parseInt(splitChosen[i]);
 		}
+
 		// Just a little pause to build up a suspense
 		Thread.sleep(500);
 
