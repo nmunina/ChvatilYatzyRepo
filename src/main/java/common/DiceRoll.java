@@ -32,26 +32,29 @@ public class DiceRoll {
 
 		System.out.println("Vilka tarningar vill du spara? Skriv 1 for att spara eller 0 for att kasta. T.ex. 0 1 1 0 1 f�r att spara 2a, 3e och 5e t�rningen");
 
-		// Store choices in str
-		String choice = scanner.nextLine();
-		// Split into string array
+		try	{// Store choices in str
+			String choice = scanner.nextLine();
+			// Split into string array
 
-		String[] splitChosen = choice.split(" ");
+			String[] splitChosen = choice.split(" ");
 
-		// Parse the string array into an int array
-		int[] dieArr = new int[5];
-		for (int i = 0; i < 5; i++) {
-			dieArr[i] = Integer.parseInt(splitChosen[i]);
-		}
-
-		// Just a little pause to build up a suspense
-		Thread.sleep(500);
-
-		// Check which dice to reroll
-		for (int i = 0; i < dieArr.length; i++) {
-			if (dieArr[i] == 0) {
-				fiveDice[i] = DiceRoll.roll();
+			// Parse the string array into an int array
+			int[] dieArr = new int[5];
+			for (int i = 0; i < 5; i++) {
+				dieArr[i] = Integer.parseInt(splitChosen[i]);
 			}
+
+			// Just a little pause to build up a suspense
+			Thread.sleep(500);
+
+			// Check which dice to reroll
+			for (int i = 0; i < dieArr.length; i++) {
+				if (dieArr[i] == 0) {
+					fiveDice[i] = DiceRoll.roll();
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("Felaktig input, f�rs�k igen.");
 		}
 
 		firstKeep = fiveDice;
