@@ -88,7 +88,7 @@ public class YatzyApplication {
 						System.out.println("Din runda poäng är " + DiceRoll.getRoundScore(fiveDice));
 						tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
 						System.out.println("Din spelpoäng är nu " + tempScore);
-						System.out.println("Thank you, next turn. Press Enter to continue.\n");
+						System.out.println("Tack, nästa tur. Tryck på Enter för att fortsätta.\n");
 						 
 						//Score.combinations(fiveDice);
 						scanner.nextLine();

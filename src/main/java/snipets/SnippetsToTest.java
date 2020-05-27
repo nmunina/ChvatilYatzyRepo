@@ -24,7 +24,7 @@ public class SnippetsToTest {
 		boolean gameRunning = true;
 		boolean[] combinationsChecked = new boolean[15];
 		int[] combinationScore = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		String[] combinations = { "Ones", "Twos", "Threes", "Fours", "Fives", "Sixes", "Pair", "Two Pair",
+		String[] combinations = { "Ettor", "Tvåor", "Treor", "Fyror", "Femmor", "Sexor", "Pair", "Two Pair",
 				"Three of a Kind", "Four of a Kind", "Small Straight", "Large Straight", "Full House", "Chance",
 				"Yatzy" };
 		String tempBoolString;
