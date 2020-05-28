@@ -32,6 +32,8 @@ public class Score {
 			}
 		}
 		// Upper score board points
+		//TODO 
+		//add check to see if score is already used (combinationsChecked bool)
 		System.out.println(java.util.Arrays.toString(diceRolls));
 
 		System.out.println("Poängval");
@@ -61,7 +63,8 @@ public class Score {
 			tempScore += (one * 1);
 			combinationScore[0] = (one * 1);
 			combinationsChecked[0] = true;
-		} else if (choice2 == 2 && two > 0) {
+		} 
+		else if (choice2 == 2 && two > 0) {
 
 			System.out.println("Score in twos: " + (two * 2));
 			tempScore += (two * 2);
