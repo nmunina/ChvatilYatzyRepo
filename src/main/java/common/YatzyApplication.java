@@ -63,19 +63,19 @@ public class YatzyApplication {
 							secondReroll = true;
 							fiveDice = diceRoll.reroll(fiveDice);
 							
-							System.out.println("Din runda poäng är " + DiceRoll.getRoundScore(fiveDice));
-							tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
-							System.out.println("Din spelpoäng är nu" + tempScore);
+//							System.out.println("Din runda poäng är " + DiceRoll.getRoundScore(fiveDice));
+//							tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
+//							System.out.println("Din spelpoäng är nu" + tempScore);
 							
-							//Score.combinations(fiveDice);
+							Score.combinations(fiveDice);
 						}
 						else if (choice == 2) {
 							
-							System.out.println("Din runda poäng är " + DiceRoll.getRoundScore(fiveDice));
-							tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
-							System.out.println("Din spelpoäng är nu " + tempScore);
+//							System.out.println("Din runda poäng är " + DiceRoll.getRoundScore(fiveDice));
+//							tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
+//							System.out.println("Din spelpoäng är nu " + tempScore);
 							
-							//Score.combinations(fiveDice);
+							Score.combinations(fiveDice);
 						}
 						
 						else {
@@ -85,12 +85,12 @@ public class YatzyApplication {
 
 					else if (choice == 2) {
 						
-						System.out.println("Din runda poäng är " + DiceRoll.getRoundScore(fiveDice));
-						tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
-						System.out.println("Din spelpoäng är nu " + tempScore);
-						System.out.println("Tack, nästa tur. Tryck på Enter för att fortsätta.\n");
+//						System.out.println("Din runda poäng är " + DiceRoll.getRoundScore(fiveDice));
+//						tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
+//						System.out.println("Din spelpoäng är nu " + tempScore);
+//						System.out.println("Tack, nästa tur. Tryck på Enter för att fortsätta.\n");
 						 
-						//Score.combinations(fiveDice);
+						Score.combinations(fiveDice);
 						scanner.nextLine();
 
 					}					

@@ -59,42 +59,42 @@ public class Score {
 
 		int choice2 = scanner.nextInt();
 		if (choice2 == 1 && one > 0) {
-			System.out.println("Score in ones: " + (one * 1));
+			System.out.println("Poäng i ettor: " + (one * 1));
 			tempScore += (one * 1);
 			combinationScore[0] = (one * 1);
 			combinationsChecked[0] = true;
 		} 
 		else if (choice2 == 2 && two > 0) {
 
-			System.out.println("Score in twos: " + (two * 2));
+			System.out.println("Poäng i tvåor: " + (two * 2));
 			tempScore += (two * 2);
 			combinationScore[1] = (two * 2);
 			combinationsChecked[1] = true;
 		}
 
 		else if (choice2 == 3 && three > 0) {
-			System.out.println("Score in threes: " + (three * 3));
+			System.out.println("Poäng i treor: " + (three * 3));
 			tempScore += (three * 3);
 			combinationScore[2] = (three * 3);
 			combinationsChecked[2] = true;
 		}
 
 		else if (choice2 == 4 && four > 0) {
-			System.out.println("Score in fours: " + (four * 4));
+			System.out.println("Poäng i fyror: " + (four * 4));
 			tempScore += (four * 4);
 			combinationScore[3] = (four * 4);
 			combinationsChecked[3] = true;
 		}
 
 		else if (choice2 == 5 && five > 0) {
-			System.out.println("Score in fives: " + (five * 5));
+			System.out.println("Poäng i femmor: " + (five * 5));
 			tempScore += (five * 5);
 			combinationScore[4] = (five * 5);
 			combinationsChecked[4] = true;
 		}
 
 		else if (choice2 == 5 && five > 0) {
-			System.out.println("Score in sixes: " + (six * 6));
+			System.out.println("Poäng i sexor: " + (six * 6));
 			tempScore += (six * 6);
 			combinationScore[5] = (six * 6);
 			combinationsChecked[5] = true;

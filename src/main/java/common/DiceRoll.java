@@ -30,7 +30,7 @@ public class DiceRoll {
 		int temp;
 		int[] firstKeep;
 
-		System.out.println("Vilka tarningar vill du spara? Skriv 1 for att spara eller 0 for att kasta. T.ex. 0 1 1 0 1 fï¿½r att spara 2a, 3e och 5e tï¿½rningen");
+		System.out.println("Vilka tarningar vill du spara? Skriv 1 for att spara eller 0 for att kasta. T.ex. 0 1 1 0 1 för att spara 2a, 3e och 5e tärningen");
 
 		try	{// Store choices in str
 			String choice = scanner.nextLine();
