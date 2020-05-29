@@ -54,7 +54,7 @@ public class DiceRoll {
 				}
 			}
 		} catch (Exception e) {
-			System.out.println("Felaktig input, fï¿½rsï¿½k igen.");
+			System.out.println("Felaktig input, försök igen.");
 		}
 
 		firstKeep = fiveDice;
