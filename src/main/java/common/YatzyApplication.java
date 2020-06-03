@@ -47,16 +47,16 @@ public class YatzyApplication {
 					//Sort dice from lowest to highest
 					diceRoll.diceSort(fiveDice);
 
-					System.out.println("Din tärning rullar: " + java.util.Arrays.toString(fiveDice));
+					System.out.println("Dina tärningar rullade: " + java.util.Arrays.toString(fiveDice));
 					
-					System.out.println("Vill du rullar igen? \n 1. Ja \n 2. Nej");
+					System.out.println("Vill du kasta igen? \n 1. Ja \n 2. Nej");
 					int choice = scanner.nextInt();
 					
 					if (choice == 1 && firstReroll == false) {
 						firstReroll = true;
 						fiveDice = diceRoll.reroll(fiveDice);
-						System.out.println("Din tärnings rulle efter den första rullar är: " + java.util.Arrays.toString(fiveDice));
-						System.out.println("Vill du rullar igen? \n 1. Ja \n 2. Nej");
+						System.out.println("Dina tärningar efter omkastet är: " + java.util.Arrays.toString(fiveDice));
+						System.out.println("Vill du kasta igen? \n 1. Ja \n 2. Nej");
 						choice = scanner.nextInt();
 						
 						if (choice == 1 && secondReroll == false) {
@@ -121,7 +121,7 @@ public class YatzyApplication {
 			//game.gameOver(); //is the game over?
 
 			// set up a new game (or not)
-			System.out.println("Vill du spela igen? Skriv ut Y om du gör det, eller något annat om du är trött.");
+			System.out.println("Vill du spela igen? Skriv ut Y om du gör det, eller något annat om du vill avsluta spelet.");
 			char response = scanner.next().charAt(0);
 			doYouWantToPlay = (response == 'Y'); // if Yes then doYouWantToPlay is true;
 			System.out.println();
