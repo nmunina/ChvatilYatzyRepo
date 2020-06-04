@@ -171,7 +171,7 @@ public class SnippetsToTest {
 				combinationsChecked[4] = true;
 			}
 
-			else if (choice2 == 5 && five > 0) {
+			else if (choice2 == 6 && six > 0) {
 				System.out.println("Poäng i sexor: " + (six * 6));
 				tempScore += (six * 6);
 				combinationScore[5] = (six * 6);
