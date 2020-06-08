@@ -112,12 +112,36 @@ public class Score {
 			break;
 		case 11:
 			System.out.println("Poäng i liten stege: ");
+			for (int i = 0; i < diceRolls.length; i++) {
+				if (diceRolls[i] == (i+1)) {
+					combinationScore[10] += 15;
+					combinationsChecked[10] = true;
+				}
+			}
 			break;
 		case 12:
 			System.out.println("Poäng i stor stege: ");
+			for (int i = 0; i < diceRolls.length; i++) {
+				if (diceRolls[i] == (i+2)) {
+					combinationScore[11] += 20;
+					combinationsChecked[11] = true;
+					
+				}
+			}
 			break;
 		case 13:
 			System.out.println("Poäng i kåk: ");
+			for (int i = 0; i < diceRolls.length; i++) {
+				if( (((diceRolls[0] == diceRolls[1]) && (diceRolls[1] == diceRolls[2])) &&
+						(diceRolls[3] == diceRolls[4]) &&
+						(diceRolls[2] != diceRolls[3])) ||
+						((diceRolls[0] == diceRolls[1]) &&
+						((diceRolls[2] == diceRolls[3]) && 
+						(diceRolls[3] == diceRolls[4])) &&
+						(diceRolls[1] != diceRolls[2]))) {
+					
+				}
+			}
 			break;
 		case 14:
 			System.out.println("Poäng i chans: ");
