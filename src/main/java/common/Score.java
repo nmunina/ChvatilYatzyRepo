@@ -6,7 +6,7 @@ public class Score {
 	private static int tempScore = 0;
 	public static Scanner scanner = new Scanner(System.in);
 	private static boolean[] combinationsChecked = new boolean[15];
-	private static int[] combinationScore = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+	private static int[] combinationScore = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //move to player
 
 	public static void combinations(int[] diceRolls) {
 		int one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
@@ -44,8 +44,8 @@ public class Score {
 		System.out.println("4. Fyror");
 		System.out.println("5. Femmor");
 		System.out.println("6. Sexor");
-		System.out.println("Summa 1-6: ");
-		System.out.println("Bonus: ");
+		System.out.println("Summa 1-6: "); //combined score of upper section 
+		System.out.println("Bonus: "); //if combined score is 63 or more, add 50 points in bonus
 		System.out.println("7. Ett par");
 		System.out.println("8. Två par");
 		System.out.println("9. Triss");
@@ -55,7 +55,7 @@ public class Score {
 		System.out.println("13. Kåk");
 		System.out.println("14. Chans");
 		System.out.println("15. YATZY!");
-		System.out.println("Total summa: "); //Increase player score
+		System.out.println("Total summa: "); //Show player score
 		System.out.println("vart vill du spara dina täningar?");
 		
 		int choice2 = scanner.nextInt();
