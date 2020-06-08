@@ -18,11 +18,11 @@ public class DiceRollTest {
     }
 
     //Can not test due to scanner inside function
-    @Test(expected = InterruptedException.class)
-    public void rerollThrowsException() throws InterruptedException {
+    //@Test(expected = InterruptedException.class)
+    //public void rerollThrowsException() throws InterruptedException {
 //        int[] testRoll = new int[5];
 //        diceRoll.reroll(testRoll);
-    }
+    //}
 
     @Test
     public void get() {

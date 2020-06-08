@@ -4,24 +4,34 @@ public class Player {
     public String name = "OnePlayerGameDummy";
     boolean winner;
     private int score;
+    private boolean[] combinationsChecked = new boolean[15];
+    private int[] combinationScore = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
 
     //Player player = new Player();
     public void printPlayersScore(){
-        System.out.println("printPlayersScore() shows score " + score);
+        for (int i = 0; i < combinationScore.length; i++) {
+            score += combinationScore[i];
+        }
+        System.out.println("Total summa: " + score);
     }
 
-    public int increasePlayersScore(int points) {
-        score +=points;
-        return score;
+    public void increasePlayersScore(int position, int scoreInput) {
+        combinationScore[position] += scoreInput;
     }
 
-    //TODO player choses what dice to (re)roll
-    public int[] choise() {
-        // wich dice you want to reroll
-        // numbers in the array
-
-        int[] firstRoll = new int[5];
-
-        return firstRoll;
+    public void isCombinationChecked(int position, boolean isChecked) {
+        combinationsChecked[position] = isChecked;
     }
+
+
+//    //TODO player choses what dice to (re)roll
+//    public int[] choise() {
+//        // wich dice you want to reroll
+//        // numbers in the array
+//
+//        int[] firstRoll = new int[5];
+//
+//        return firstRoll;
+//    }
 }

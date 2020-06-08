@@ -8,5 +8,6 @@ public class ScoreTest {
 
     @Test
     public void combinations() {
+
     }
 }
