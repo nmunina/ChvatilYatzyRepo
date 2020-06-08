@@ -55,7 +55,7 @@ public class Score {
 		System.out.println("13. Kåk");
 		System.out.println("14. Chans");
 		System.out.println("15. YATZY!");
-		System.out.println("Total summa: ");
+		System.out.println("Total summa: "); //Increase player score
 		System.out.println("vart vill du spara dina täningar?");
 		
 		int choice2 = scanner.nextInt();
