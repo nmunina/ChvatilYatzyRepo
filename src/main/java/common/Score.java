@@ -72,34 +72,38 @@ public class Score {
 			break;
 		case 2:
 			System.out.println("Poäng i tvåor: " + (two * 2));
-			Player.increasePlayersScore(0, two * 2);
+			Player.increasePlayersScore(1, two * 2);
 			//tempScore += (two * 2);
 //			combinationScore[1] = (two * 2);
 //			combinationsChecked[1] = true;
 			break;
 		case 3:
 			System.out.println("Poäng i treor: " + (three * 3));
+			Player.increasePlayersScore(2,three * 3);
 			//tempScore += (three * 3);
-			combinationScore[2] = (three * 3);
-			combinationsChecked[2] = true;
+//			combinationScore[2] = (three * 3);
+//			combinationsChecked[2] = true;
 			break;
 		case 4:
 			System.out.println("Poäng i fyror: " + (four * 4));
+			Player.increasePlayersScore(3,four * 4);
 			//tempScore += (four * 4);
-			combinationScore[3] = (four * 4);
-			combinationsChecked[3] = true;
+//			combinationScore[3] = (four * 4);
+//			combinationsChecked[3] = true;
 			break;
 		case 5:
 			System.out.println("Poäng i femmor: " + (five * 5));
+			Player.increasePlayersScore(4, five * 5);
 			//tempScore += (five * 5);
-			combinationScore[4] = (five * 5);
-			combinationsChecked[4] = true;
+//			combinationScore[4] = (five * 5);
+//			combinationsChecked[4] = true;
 			break;
 		case 6:
 			System.out.println("Poäng i sexor: " + (six * 6));
+			Player.increasePlayersScore(5, six * 6);
 			//tempScore += (six * 6);
-			combinationScore[5] = (six * 6);
-			combinationsChecked[5] = true;
+//			combinationScore[5] = (six * 6);
+//			combinationsChecked[5] = true;
 			break;
 		case 7:
 			 System.out.println("Poäng i ett par: ");
@@ -117,8 +121,9 @@ public class Score {
 			System.out.println("Poäng i liten stege: ");
 			for (int i = 0; i < diceRolls.length; i++) {
 				if (diceRolls[i] == (i+1)) {
-					combinationScore[10] += 15;
-					combinationsChecked[10] = true;
+					Player.increasePlayersScore(10, 15);
+//					combinationScore[10] += 15;
+//					combinationsChecked[10] = true;
 				}
 			}
 			break;
@@ -126,8 +131,9 @@ public class Score {
 			System.out.println("Poäng i stor stege: ");
 			for (int i = 0; i < diceRolls.length; i++) {
 				if (diceRolls[i] == (i+2)) {
-					combinationScore[11] += 20;
-					combinationsChecked[11] = true;
+					Player.increasePlayersScore(11, 20);
+//					combinationScore[11] += 20;
+//					combinationsChecked[11] = true;
 					
 				}
 			}
