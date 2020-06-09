@@ -105,6 +105,8 @@ public class YatzyApplication {
 					if (round == ROUNDSNUMBER - 1 && l == playersInGame.length - 1) {
 						System.out.println();
 						System.out.println("Spelet över. Vi räknar poängen.");
+						Player.printPlayersScore();
+
 					} else {
 //						playersInGame[l].printPlayersScore();
 						Thread.sleep(500);

@@ -55,7 +55,8 @@ public class Score {
 		System.out.println("13. Kåk");
 		System.out.println("14. Chans");
 		System.out.println("15. YATZY!");
-		System.out.println("Total summa: "); //Show player score
+		//System.out.println("Total summa: ");
+		Player.printPlayersScore();//Show player score
 		System.out.println("vart vill du spara dina täningar?");
 		
 		int choice2 = scanner.nextInt();
@@ -64,37 +65,39 @@ public class Score {
 		
 		case 1:
 			System.out.println("Poäng i ettor: " + (one * 1));
-			tempScore += (one * 1);
-			combinationScore[0] = (one * 1);
-			combinationsChecked[0] = true;
+			Player.increasePlayersScore(0, one * 1); // increase and mark combination checked
+			//tempScore += (one * 1);
+//			combinationScore[0] = (one * 1);
+//			combinationsChecked[0] = true;
 			break;
 		case 2:
 			System.out.println("Poäng i tvåor: " + (two * 2));
-			tempScore += (two * 2);
-			combinationScore[1] = (two * 2);
-			combinationsChecked[1] = true;
+			Player.increasePlayersScore(0, two * 2);
+			//tempScore += (two * 2);
+//			combinationScore[1] = (two * 2);
+//			combinationsChecked[1] = true;
 			break;
 		case 3:
 			System.out.println("Poäng i treor: " + (three * 3));
-			tempScore += (three * 3);
+			//tempScore += (three * 3);
 			combinationScore[2] = (three * 3);
 			combinationsChecked[2] = true;
 			break;
 		case 4:
 			System.out.println("Poäng i fyror: " + (four * 4));
-			tempScore += (four * 4);
+			//tempScore += (four * 4);
 			combinationScore[3] = (four * 4);
 			combinationsChecked[3] = true;
 			break;
 		case 5:
 			System.out.println("Poäng i femmor: " + (five * 5));
-			tempScore += (five * 5);
+			//tempScore += (five * 5);
 			combinationScore[4] = (five * 5);
 			combinationsChecked[4] = true;
 			break;
 		case 6:
 			System.out.println("Poäng i sexor: " + (six * 6));
-			tempScore += (six * 6);
+			//tempScore += (six * 6);
 			combinationScore[5] = (six * 6);
 			combinationsChecked[5] = true;
 			break;

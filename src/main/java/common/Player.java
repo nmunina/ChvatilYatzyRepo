@@ -1,28 +1,26 @@
 package common;
 
 public class Player {
-    public String name = "OnePlayerGameDummy";
+    public static String name = "OnePlayerGameDummy";
     boolean winner;
-    private int score;
-    private boolean[] combinationsChecked = new boolean[15];
-    private int[] combinationScore = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    private static int score;
+    private static boolean[] combinationsChecked = new boolean[15];
+    private static int[] combinationScore = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 
     //Player player = new Player();
-    public void printPlayersScore(){
+    public static void printPlayersScore(){
         for (int i = 0; i < combinationScore.length; i++) {
             score += combinationScore[i];
         }
-        System.out.println("Total summa: " + score);
+        System.out.println("Total summa för spelare " + name + ": " + score);
     }
 
-    public void increasePlayersScore(int position, int scoreInput) {
+    public static void increasePlayersScore(int position, int scoreInput) {
         combinationScore[position] += scoreInput;
+        combinationsChecked[position] = true;
     }
 
-    public void isCombinationChecked(int position, boolean isChecked) {
-        combinationsChecked[position] = isChecked;
-    }
 
 
 //    //TODO player choses what dice to (re)roll
