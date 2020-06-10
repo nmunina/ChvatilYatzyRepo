@@ -10,12 +10,12 @@ import static org.junit.Assert.*;
 public class ScoreTest {
 
     @Test
-    public void ShouldReturnTrue_IfRollIsStraight() {
+    public void ShouldReturnTrue_IfRollIsSmallStraight() {
     	// Arrange
     	int[] dice = {1, 2, 3, 4, 5};
     	int didItWork = 5;
     	// Act
-    	didItWork = TestEnvironment.testStraight(dice);
+    	didItWork = TestEnvironment.testSmallStraight(dice);
     	
     	// Assert
     	assertEquals(5, didItWork);

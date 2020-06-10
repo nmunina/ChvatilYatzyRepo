@@ -4,7 +4,7 @@ public class TestEnvironment {
 	public TestEnvironment(){
 		
 	}
-	public static int testStraight(int[] testDice) {
+	public static int testSmallStraight(int[] testDice) {
 		int count = 0;
 		for (int i = 0; i < testDice.length; i++) {
 			if (testDice[i] == (i+1)) {
