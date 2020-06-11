@@ -13,13 +13,17 @@ public class Player {
         for (int i = 0; i < combinationScore.length; i++) {
             score += combinationScore[i];
         }
-        System.out.println("Total summa fÃ¶r spelare " + name + ": " + score);
+        System.out.println("Total summa för spelare " + name + ": " + score);
     }
 
     public static void increasePlayersScore(int position, int scoreInput) {
         combinationScore[position] += scoreInput;
         combinationsChecked[position] = true;
     }
+    
+    public static int combinationTotal(int score) {
+		return combinationScore[score];
+	}
 
 
 

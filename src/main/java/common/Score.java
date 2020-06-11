@@ -7,6 +7,7 @@ public class Score {
 	public static Scanner scanner = new Scanner(System.in);
 	private static boolean[] combinationsChecked = new boolean[15];
 	private static int[] combinationScore = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //move to player
+	public static Player score = new Player();
 
 	public static void combinations(int[] diceRolls) {
 		int one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
@@ -38,23 +39,23 @@ public class Score {
 
 		System.out.println("Poängval");
 
-		System.out.println("1. Ettor");
-		System.out.println("2. Tvåor");
-		System.out.println("3. Treor");
-		System.out.println("4. Fyror");
-		System.out.println("5. Femmor");
-		System.out.println("6. Sexor");
+		System.out.println("1. Ettor: " + Player.combinationTotal(0));
+		System.out.println("2. Tvåor: " + Player.combinationTotal(1));
+		System.out.println("3. Treor: " + Player.combinationTotal(2));
+		System.out.println("4. Fyror: " + Player.combinationTotal(3));
+		System.out.println("5. Femmor: " + Player.combinationTotal(4));
+		System.out.println("6. Sexor: " + Player.combinationTotal(5));
 		System.out.println("Summa 1-6: "); //combined score of upper section 
 		System.out.println("Bonus: "); //if combined score is 63 or more, add 50 points in bonus
-		System.out.println("7. Ett par");
-		System.out.println("8. Två par");
-		System.out.println("9. Triss");
-		System.out.println("10. Fyrtal");
-		System.out.println("11. Liten stege");
-		System.out.println("12. Stor stege");
-		System.out.println("13. Kåk");
-		System.out.println("14. Chans");
-		System.out.println("15. YATZY!");
+		System.out.println("7. Ett par: " + Player.combinationTotal(6));
+		System.out.println("8. Två par: " + Player.combinationTotal(7));
+		System.out.println("9. Triss: " + Player.combinationTotal(8));
+		System.out.println("10. Fyrtal: " + Player.combinationTotal(9));
+		System.out.println("11. Liten stege: " + Player.combinationTotal(10));
+		System.out.println("12. Stor stege: " + Player.combinationTotal(11));
+		System.out.println("13. Kåk: " + Player.combinationTotal(12));
+		System.out.println("14. Chans: " + Player.combinationTotal(13));
+		System.out.println("15. YATZY!: " + Player.combinationTotal(14));
 		//System.out.println("Total summa: ");
 		Player.printPlayersScore();//Show player score
 		System.out.println("vart vill du spara dina täningar?");
