@@ -10,13 +10,14 @@ public class Player {
 
     //Player player = new Player();
     public static void printPlayersScore(){
-        for (int i = 0; i < combinationScore.length; i++) {
-            score += combinationScore[i];
-        }
-        System.out.println("Total summa för spelare " + name + ": " + score);
+//        for (int i = 0; i < combinationScore.length; i++) {
+//            score += combinationScore[i];
+//        }
+        System.out.println("Total summa fï¿½r spelare " + name + ": " + score);
     }
 
     public static void increasePlayersScore(int position, int scoreInput) {
+        score += scoreInput;
         combinationScore[position] += scoreInput;
         combinationsChecked[position] = true;
     }
