@@ -3,6 +3,7 @@ package snipets;
 import common.DiceRoll;
 import common.Player;
 
+import java.security.PublicKey;
 //import java.beans.JavaBean;
 import java.util.Random;
 import java.util.Scanner;
@@ -15,6 +16,8 @@ public class SnippetsToTest {
 	private static int value;
 	private static Random rand = new Random();
 	private static int roundPoints = 0;
+	
+	
 
 	public static void main(String[] args) throws InterruptedException {
 
@@ -270,6 +273,7 @@ public class SnippetsToTest {
 				combinationScore[5] = (six * 6);
 				combinationsChecked[5] = true;
 			}
+			
 
 //			else {
 				
@@ -309,4 +313,5 @@ public class SnippetsToTest {
 //				}
 //			}
 		}
+	
 	}
