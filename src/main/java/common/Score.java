@@ -163,4 +163,18 @@ public class Score {
 			}
 		}
 	}
+
+	public static void pointsHouse(int[] diceRolls){
+		System.out.println("Poäng i kåk: ");
+		for (int i = 0; i < diceRolls.length; i++) {
+			if( (((diceRolls[0] == diceRolls[1]) && (diceRolls[1] == diceRolls[2])) &&
+					(diceRolls[3] == diceRolls[4]) &&
+					(diceRolls[2] != diceRolls[3])) ||
+					((diceRolls[0] == diceRolls[1]) &&
+					((diceRolls[2] == diceRolls[3]) && (diceRolls[3] == diceRolls[4])) &&
+					(diceRolls[1] != diceRolls[2]))) {
+				System.out.println("true");
+			} else System.out.println("false");
+		}
+	}
 }
