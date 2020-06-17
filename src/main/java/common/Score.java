@@ -80,6 +80,19 @@ public class Score {
 			break;
 		case 8:
 			System.out.println("Poäng i två par: ");
+			tempScore = 0;
+			if ((diceRolls[0] == diceRolls[1]) && (diceRolls[2] == diceRolls[3])) {
+				for (int i = 0; i < (diceRolls.length - 1); i++) {
+					tempScore += diceRolls[i];
+					
+				}
+			}
+			else if ( (diceRolls[1] == diceRolls[2]) && (diceRolls[3] == diceRolls[4])) {
+				for (int i = 1; i < diceRolls.length; i++) {
+					tempScore += diceRolls[i];
+				}
+			}
+			
 			break;
 		case 9:
 			System.out.println("Poäng i triss: ");
