@@ -79,7 +79,7 @@ public class Score {
 			Player.increasePlayersScore(6, tempScore);
 			break;
 		case 8:
-			System.out.println("Poäng i två par: ");
+			
 			tempScore = 0;
 			if ((diceRolls[0] == diceRolls[1]) && (diceRolls[2] == diceRolls[3])) {
 				for (int i = 0; i < (diceRolls.length - 1); i++) {
@@ -92,7 +92,8 @@ public class Score {
 					tempScore += diceRolls[i];
 				}
 			}
-			
+			System.out.println("Poäng i två par: ");
+			Player.increasePlayersScore(7, tempScore);
 			break;
 		case 9:
 			System.out.println("Poäng i triss: ");
