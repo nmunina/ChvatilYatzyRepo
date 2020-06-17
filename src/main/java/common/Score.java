@@ -163,7 +163,7 @@ public class Score {
 		System.out.println("5. Femmor: " + Player.combinationTotal(4));
 		System.out.println("6. Sexor: " + Player.combinationTotal(5));
 		System.out.println("Summa 1-6: "); //combined score of upper section
-		System.out.println("Bonus: "); //if combined score is 63 or more, add 50 points in bonus
+		System.out.println("Bonus: " + Player.bonus(Player.upperScore)); //if combined score is 63 or more, add 50 points in bonus
 		System.out.println("7. Ett par: " + Player.combinationTotal(6));
 		System.out.println("8. Två par: " + Player.combinationTotal(7));
 		System.out.println("9. Triss: " + Player.combinationTotal(8));
@@ -175,6 +175,7 @@ public class Score {
 		System.out.println("15. YATZY!: " + Player.combinationTotal(14));
 
 	}
+	
 
 	private static void countOccurrences(int[] diceRolls) {
 		one = 0; two = 0; three = 0; four = 0; five = 0; six = 0;
