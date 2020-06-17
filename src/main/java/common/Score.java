@@ -115,20 +115,20 @@ public class Score {
 			break;
 		case 11:
 
-			for (int i = 0; i < diceRolls.length; i++) {
-				if (diceRolls[i] == (i+1)) {
+//			for (int i = 0; i < diceRolls.length; i++) {
+//				if (diceRolls[i] == (i+1)) {
 					Player.increasePlayersScore(10, 15);
-				}
-			}
+//				}
+//			}
 			System.out.println("Poäng i liten stege: 15");
 			break;
 		case 12:
 
-			for (int i = 0; i < diceRolls.length; i++) {
-				if (diceRolls[i] == (i+2)) {
+//			for (int i = 0; i < diceRolls.length; i++) {
+//				if (diceRolls[i] == (i+2)) {
 					Player.increasePlayersScore(11, 20);
-				}
-			}
+//				}
+//			}
 			System.out.println("Poäng i stor stege: 20");
 			break;
 		case 13:
