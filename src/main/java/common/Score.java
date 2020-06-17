@@ -1,5 +1,6 @@
 package common;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Score {
@@ -53,17 +54,46 @@ public class Score {
 			System.out.println("Poäng i sexor: " + (six * 6));
 			Player.increasePlayersScore(5, six * 6);
 			break;
+			
 		case 7:
-			 System.out.println("Poäng i ett par: ");
+			System.out.println("Poäng i par: ");
+			if (six >= 2) {
+				tempScore = (six * 2);
+			}
+			else if (five >= 2) {
+				tempScore = (five * 2);
+			}
+			else if (four >= 2) {
+				tempScore = (four * 2);
+			}
+			else if (three >= 2) {
+				tempScore = (three * 2);
+			}
+			else if (two >= 2) {
+				tempScore = (two * 2);
+			}
+			else if (one >= 2) {
+				tempScore = (one * 2);
+			}
+			Player.increasePlayersScore(6, tempScore);
 			break;
 		case 8:
 			System.out.println("Poäng i två par: ");
 			break;
 		case 9:
 			System.out.println("Poäng i triss: ");
+			if ( (diceRolls[0] == diceRolls[2]) || (diceRolls[1] == diceRolls[3]) || (diceRolls[2] == diceRolls[4]) ) {
+				tempScore = (diceRolls[2] * 3);
+			}
 			break;
 		case 10:
 			System.out.println("Poäng i fyrtal");
+			if ((diceRolls[0] == diceRolls[3]) || (diceRolls[1] == diceRolls[4])) {
+				tempScore = diceRolls[2] * 4;
+				
+			}
+			Player.increasePlayersScore(9, tempScore);
+			
 			break;
 		case 11:
 			System.out.println("Poäng i liten stege: ");
@@ -86,23 +116,30 @@ public class Score {
 			break;
 		case 13:
 			System.out.println("Poäng i kåk: ");
-			for (int i = 0; i < diceRolls.length; i++) {
-				if( (((diceRolls[0] == diceRolls[1]) && (diceRolls[1] == diceRolls[2])) &&
-						(diceRolls[3] == diceRolls[4]) &&
-						(diceRolls[2] != diceRolls[3])) ||
-						((diceRolls[0] == diceRolls[1]) &&
-						((diceRolls[2] == diceRolls[3]) && 
-						(diceRolls[3] == diceRolls[4])) &&
-						(diceRolls[1] != diceRolls[2]))) {
-					
-				}
+			if ( (((diceRolls[0] == diceRolls[1]) && (diceRolls[1] == diceRolls[2])) &&
+					(diceRolls[3] == diceRolls[4]) &&
+					(diceRolls[2] != diceRolls[3])) ||
+					((diceRolls[0] == diceRolls[1]) &&
+					((diceRolls[2] == diceRolls[3]) && 
+					(diceRolls[3] == diceRolls[4])) &&
+					(diceRolls[1] != diceRolls[2]))) {
+				tempScore = Arrays.stream(diceRolls).sum();
+				Player.increasePlayersScore(12, tempScore);
 			}
+			
 			break;
 		case 14:
 			System.out.println("Poäng i chans: ");
+			tempScore = Arrays.stream(diceRolls).sum();
+			Player.increasePlayersScore(13, tempScore);
 			break;
 		case 15:
 			System.out.println("Poäng i YATZY: ");
+			if (diceRolls[0] == diceRolls[4]) {
+				tempScore = 50;
+				Player.increasePlayersScore(14, tempScore);
+			}
+			
 			break;
 
 		default:
