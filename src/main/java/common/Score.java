@@ -10,7 +10,7 @@ public class Score {
 	//private static boolean[] combinationsChecked = new boolean[15];
 	//private static int[] combinationScore = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //move to player
 	//public static Player score = new Player();
-
+	
 	public static void combinations(int[] diceRolls) {
 
 		//count occurances in dice Roll
@@ -153,7 +153,8 @@ public class Score {
 		}
 
 	private static void printBoard() {
-
+		int upperTotal = Arrays.stream(Player.upperScore).sum();
+		
 		System.out.println("Poängval");
 
 		System.out.println("1. Ettor: " + Player.combinationTotal(0));
@@ -162,7 +163,7 @@ public class Score {
 		System.out.println("4. Fyror: " + Player.combinationTotal(3));
 		System.out.println("5. Femmor: " + Player.combinationTotal(4));
 		System.out.println("6. Sexor: " + Player.combinationTotal(5));
-		System.out.println("Summa 1-6: "); //combined score of upper section
+		System.out.println("Summa 1-6: " + upperTotal); //combined score of upper section
 		System.out.println("Bonus: " + Player.bonus(Player.upperScore)); //if combined score is 63 or more, add 50 points in bonus
 		System.out.println("7. Ett par: " + Player.combinationTotal(6));
 		System.out.println("8. Två par: " + Player.combinationTotal(7));

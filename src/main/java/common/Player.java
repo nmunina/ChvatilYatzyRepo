@@ -5,7 +5,7 @@ public class Player {
     boolean winner;
     private static int score;
     private static boolean[] combinationsChecked = new boolean[15];
-    private static int[] combinationScore = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    private static int[] combinationScore = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     public static int[] upperScore = {combinationScore[0], combinationScore[1],
     		combinationScore[2], combinationScore[3], combinationScore[4], 
     		combinationScore[5]};
