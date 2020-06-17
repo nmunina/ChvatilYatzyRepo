@@ -9,7 +9,6 @@ import java.security.PublicKey;
 import java.util.Random;
 import java.util.Scanner;
 
-import static common.Score.pointsHouse;
 
 //here we can store and test/ code parts
 
@@ -23,12 +22,24 @@ public class SnippetsToTest {
 
 
 	public static void main(String[] args) throws InterruptedException {
-		int[] house12345 = new int[]{1, 2, 3, 4, 5};
-		int[] house11122 = new int[]{1, 1, 1, 2, 2};
-		int[] house11123 = new int[]{1, 1, 1, 2, 3};
-		pointsHouse(house12345);
-		pointsHouse(house11122);
-		pointsHouse(house11123);
+		int[] house22344 = new int[]{2, 2, 3, 4, 4};
+		int countPairs = 0;
+
+		for (int i = 0; i < house22344.length - 1; i++) {
+			for (int j = i + 1; j < house22344.length; j++) {
+				if (house22344[i] == house22344[j]) {
+				// adding points
+					countPairs++;
+
+				}
+			}
+		}
+
+		System.out.println("So many pairs found: " + countPairs);
+
+
+
+
 
 
 
