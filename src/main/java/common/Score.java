@@ -12,7 +12,7 @@ public class Score {
 	//public static Player score = new Player();
 	
 	public static void combinations(int[] diceRolls) {
-
+		tempScore = 0;
 		//count occurances in dice Roll
 		countOccurrences(diceRolls);
 
