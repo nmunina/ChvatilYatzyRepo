@@ -56,7 +56,7 @@ public class Score {
 			break;
 			
 		case 7:
-			System.out.println("Poäng i par: ");
+			
 			if (six >= 2) {
 				tempScore = (six * 2);
 			}
@@ -75,6 +75,7 @@ public class Score {
 			else if (one >= 2) {
 				tempScore = (one * 2);
 			}
+			System.out.println("Poäng i par: ");
 			Player.increasePlayersScore(6, tempScore);
 			break;
 		case 8:
@@ -85,6 +86,7 @@ public class Score {
 			if ( (diceRolls[0] == diceRolls[2]) || (diceRolls[1] == diceRolls[3]) || (diceRolls[2] == diceRolls[4]) ) {
 				tempScore = (diceRolls[2] * 3);
 			}
+			Player.increasePlayersScore(8, tempScore);
 			break;
 		case 10:
 			System.out.println("Poäng i fyrtal");
@@ -203,17 +205,4 @@ public class Score {
 		}
 	}
 
-	public static void pointsHouse(int[] diceRolls){
-		System.out.println("Poäng i kåk: ");
-		for (int i = 0; i < diceRolls.length; i++) {
-			if( (((diceRolls[0] == diceRolls[1]) && (diceRolls[1] == diceRolls[2])) &&
-					(diceRolls[3] == diceRolls[4]) &&
-					(diceRolls[2] != diceRolls[3])) ||
-					((diceRolls[0] == diceRolls[1]) &&
-					((diceRolls[2] == diceRolls[3]) && (diceRolls[3] == diceRolls[4])) &&
-					(diceRolls[1] != diceRolls[2]))) {
-				System.out.println("true");
-			} else System.out.println("false");
-		}
-	}
 }
