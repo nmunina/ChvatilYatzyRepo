@@ -55,6 +55,7 @@ public class YatzyApplication {
 					if (choice == 1 && firstReroll == false) {
 						firstReroll = true;
 						fiveDice = diceRoll.reroll(fiveDice);
+						diceRoll.diceSort(fiveDice);
 						System.out.println("Dina tärningar efter omkastet är: " + java.util.Arrays.toString(fiveDice));
 						System.out.println("Vill du kasta igen? \n 1. Ja \n 2. Nej");
 						choice = scanner.nextInt();
@@ -62,6 +63,7 @@ public class YatzyApplication {
 						if (choice == 1 && secondReroll == false) {
 							secondReroll = true;
 							fiveDice = diceRoll.reroll(fiveDice);
+							diceRoll.diceSort(fiveDice);
 							
 //							System.out.println("Din runda poäng är " + DiceRoll.getRoundScore(fiveDice));
 //							tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
