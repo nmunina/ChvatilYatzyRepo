@@ -3,7 +3,7 @@ package common;
 import java.util.Scanner;
 
 public class YatzyApplication {
-	private final static int ROUNDSNUMBER = 3; //change easily to have quicker games. Needed for testing
+	private final static int ROUNDSNUMBER = 15; //change easily to have quicker games. Needed for testing
 	public static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) throws InterruptedException {
