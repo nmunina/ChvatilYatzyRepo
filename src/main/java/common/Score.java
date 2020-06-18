@@ -12,6 +12,7 @@ public class Score {
 	//public static Player score = new Player();
 	
 	public static void combinations(int[] diceRolls) {
+		int doNotCareAboutThisOne = 0;
 		tempScore = 0;
 		//count occurances in dice Roll
 		countOccurrences(diceRolls);
@@ -114,25 +115,38 @@ public class Score {
 			
 			break;
 		case 11:
-
-//			for (int i = 0; i < diceRolls.length; i++) {
-//				if (diceRolls[i] == (i+1)) {
-					Player.increasePlayersScore(10, 15);
-//				}
-//			}
-			System.out.println("Poäng i liten stege: 15");
+			doNotCareAboutThisOne = 0;
+			for (int i = 0; i < diceRolls.length; i++) {
+				if (diceRolls[i] == (i+1)) {
+					doNotCareAboutThisOne++;
+				}
+			}
+			if (doNotCareAboutThisOne == 5) {
+				System.out.println("Poäng i liten stege: 15");
+				Player.increasePlayersScore(10, 15);
+			}
+			else {
+				Player.increasePlayersScore(10, 0);
+			}
+			
 			break;
 		case 12:
-
-//			for (int i = 0; i < diceRolls.length; i++) {
-//				if (diceRolls[i] == (i+2)) {
-					Player.increasePlayersScore(11, 20);
-//				}
-//			}
-			System.out.println("Poäng i stor stege: 20");
+			doNotCareAboutThisOne = 0;
+			for (int i = 0; i < diceRolls.length; i++) {
+				if (diceRolls[i] == (i+2)) {
+					doNotCareAboutThisOne++;
+				}
+			}
+			if (doNotCareAboutThisOne == 5) {
+				System.out.println("Poäng i stor stege: 20");
+				Player.increasePlayersScore(11, 20);
+			}
+			else {
+				Player.increasePlayersScore(11, 0);
+			}
 			break;
 		case 13:
-
+			
 			if ( (((diceRolls[0] == diceRolls[1]) && (diceRolls[1] == diceRolls[2])) &&
 					(diceRolls[3] == diceRolls[4]) &&
 					(diceRolls[2] != diceRolls[3])) ||
