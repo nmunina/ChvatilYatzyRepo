@@ -1,88 +1,138 @@
 package common;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class YatzyApplication {
+	private final static int ROUNDSNUMBER = 15; //change easily to have quicker games. Needed for testing
 	public static Scanner scanner = new Scanner(System.in);
 
-	public static void main(String[] args) {
-
+	public static void main(String[] args) throws InterruptedException {
+		DiceRoll diceRoll;
 		boolean doYouWantToPlay = true;
-		Player[] playingThisGame;
+		Player[] playersInGame; //array of players for this game
+		Yatzy game;
+		int[] playerScore;
+		boolean firstReroll = false, secondReroll = false;
 
 		//TODO: How do we play the game. Instructions
-		
-		//start the game
-		
-		
+		System.out.println("Här är reglerna. Okej. Låt oss spela Yatzy!");
+
+		System.out.println("Nu kan vi starta spelet. ");
+
+		//while (doYouWantToPlay) is used to have different games within one session
 		while (doYouWantToPlay) {
-			//keep playing
-
-			System.out.println("Here should be the rules. All right. Let's play Yatzy!");
-
-			//TODO: decide, how to have Yatzy and YatzyOperations as one class. No need for two classes I think.
-			Yatzy game = new Yatzy();
-
-			// set up the game
-			System.out.println("Now we can start the game. ");
-			game.printScoreBoard(); //implement later
-
-			//while (game.gameOver().equals("notOver")) {
-
 			//creating players for this particular game
-			playingThisGame = YatzyOperations.createPlayers();
-				for (int i = 0; i < playingThisGame.length; i++) {
-					System.out.println("It's your turn player: " + playingThisGame[i].name);
+			game = new Yatzy(); //new instance for the game is created
+			playersInGame = game.createPlayers(); //first we create the players. Ask for names etc.
+			playerScore = new int[playersInGame.length]; //array of scores is created. One for each player
 
-					//kast 1
-					int result1 = DiceRoll.roll(); //TODO: it should be not stored here!
-					playingThisGame[i].score +=result1;
-					System.out.println("Your 1 roll dice show:  " + result1);
-					//player.increaseScore(DiceRoll.getPoints());
-					System.out.println("Your score is: " + playingThisGame[i].getScore());
+			int tempScore = 0;
+			int one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
+			int temp;
+			int[] fiveDice = new int[5]; //
 
-					//kast 2
-					int result2 = DiceRoll.roll(); //TODO: it should be not stored here!
-					playingThisGame[i].score +=result2;
-					System.out.println("Your 2 roll dice show: " + result2); // TODO: player selected dice to roll DiceRoll.roll(Player.choise());
-					//player.increaseScore(DiceRoll.getPoints());
-					System.out.println("Your score is: " + playingThisGame[i].getScore());
+			//looping each round
+			for (int round = 0; round < ROUNDSNUMBER; round++) { //play 15 rounds
 
-					//kast 3
-					int result3 = DiceRoll.roll(); //TODO: it should be not stored here!
-					playingThisGame[i].score +=result3;
-					System.out.println("Your 3 roll dice show " + result3); // TODO: player selected dice to roll DiceRoll.roll(Player.choise());
-					//player.increaseScore(DiceRoll.getPoints());
-					System.out.println("Your score is: " +playingThisGame[i].getScore());
+				//players throwing dice
+				for (int l = 0; l < playersInGame.length; l++) {
+					System.out.println("Det är din tur spelare: " + playersInGame[l].name);
 
-					game.printScoreBoard();
+					// Roll five dice
+					diceRoll = new DiceRoll();
+					for (int i = 0; i < fiveDice.length; i++) {
+						fiveDice[i] = diceRoll.roll();
+					}
 
-					System.out.println("Thank you, next player turn. Press Enter to continue");
-					//TODO: implement press Enter to continue
+					//Sort dice from lowest to highest
+					diceRoll.diceSort(fiveDice);
 
+					System.out.println("Dina tärningar rullade: " + java.util.Arrays.toString(fiveDice));
+					
+					System.out.println("Vill du kasta igen? \n 1. Ja \n 2. Nej");
+					int choice = scanner.nextInt();
+					
+					if (choice == 1 && firstReroll == false) {
+						firstReroll = true;
+						fiveDice = diceRoll.reroll(fiveDice);
+						diceRoll.diceSort(fiveDice);
+						System.out.println("Dina tärningar efter omkastet är: " + java.util.Arrays.toString(fiveDice));
+						System.out.println("Vill du kasta igen? \n 1. Ja \n 2. Nej");
+						choice = scanner.nextInt();
+						
+						if (choice == 1 && secondReroll == false) {
+							secondReroll = true;
+							fiveDice = diceRoll.reroll(fiveDice);
+							diceRoll.diceSort(fiveDice);
+							
+//							System.out.println("Din runda poäng är " + DiceRoll.getRoundScore(fiveDice));
+//							tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
+//							System.out.println("Din spelpoäng är nu" + tempScore);
+							
+							Score.combinations(fiveDice);
+						}
+						else if (choice == 2) {
+							
+//							System.out.println("Din runda poäng är " + DiceRoll.getRoundScore(fiveDice));
+//							tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
+//							System.out.println("Din spelpoäng är nu " + tempScore);
+							
+							Score.combinations(fiveDice);
+						}
+						
+						else {
+							System.out.println("Felaktig input");
+						}
+					}
+
+					else if (choice == 2) {
+						
+//						System.out.println("Din runda poäng är " + DiceRoll.getRoundScore(fiveDice));
+//						tempScore = playersInGame[l].increasePlayersScore(DiceRoll.getRoundScore(fiveDice));
+//						System.out.println("Din spelpoäng är nu " + tempScore);
+//						System.out.println("Tack, nästa tur. Tryck på Enter för att fortsätta.\n");
+						 
+						Score.combinations(fiveDice);
+						scanner.nextLine();
+
+					}					
+					
+					else {
+						System.out.println("Felaktig input");
+					
+						System.out.println(java.util.Arrays.toString(fiveDice));
+					}
+
+					// if the last player has thrown dice for the last time, we end the game
+					if (round == ROUNDSNUMBER - 1 && l == playersInGame.length - 1) {
+						System.out.println();
+						System.out.println("Spelet över. Vi räknar poängen.");
+						Player.printPlayersScore();
+
+					} else {
+//						playersInGame[l].printPlayersScore();
+						Thread.sleep(500);
+						System.out.println("Tack, nästa tur. Tryck på Enter för att fortsätta.\n");
+						scanner.nextLine();
+					}
 				}
-//				game.gameOver(); //is the game over?
-//
-//				System.out.println("Your score board after this turn is: ");
-//				game.printScoreBoard();
-//				System.out.println(game.gameOver());
-//
-				// set up a new game (or not)
-				System.out.println("Do you want to play again? Print Y if you do, or anything else if you are tired.");
-				//TODO Again proplem with scanner next :( It's something dealing with several nextLine() in code
-				// Probably we could use Buffered reader?
-				// BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-//
-//				char response = scanner.next().charAt(0);
-//				doYouWantToPlay = (response == 'Y'); // if Yes then doYouWantToPlay is true;
-//				System.out.println();
-//				System.out.println();
+			}
 
+			System.out.println("Och vinnaren är!");
+			System.out.println();
+
+			//TODO the game is over
+			//game.gameOver(); //is the game over?
+
+			// set up a new game (or not)
+			System.out.println("Vill du spela igen? Skriv ut Y om du gör det, eller något annat om du vill avsluta spelet.");
+			char response = scanner.next().charAt(0);
+			doYouWantToPlay = (response == 'Y'); // if Yes then doYouWantToPlay is true;
+			System.out.println();
+			System.out.println();
 		}
 
-		System.out.println("Thank you for playing with us");
+		System.out.println("Tack för att du spelade med oss");
 
 		scanner.close();
 	}

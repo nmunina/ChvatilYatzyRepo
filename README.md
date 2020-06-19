@@ -47,6 +47,6 @@ Individual and general score boards
 Team Chvátil members
 * @alexanderbram
 * @nmunina
-* Axel
-* OmotayoAkande
+* @AxelAGit
+* Omotayo
 * Victor
