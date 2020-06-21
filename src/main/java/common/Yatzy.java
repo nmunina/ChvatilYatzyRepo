@@ -11,7 +11,7 @@ public class Yatzy {
 
     //function to create array of players
     public Player[] createPlayers() {
-        System.out.println("Välj antal spelare (1 - 4): ");
+        System.out.println("Vï¿½lj antal spelare (1 - 4): ");
 
         //handling InvalidInputException
         int numPlayers = 0;
@@ -20,7 +20,7 @@ public class Yatzy {
             if (scanner.hasNextInt())
                 numPlayers = scanner.nextInt();
             else {
-                System.out.println("Felaktig input, försök igen.");
+                System.out.println("Felaktig input, fï¿½rsï¿½k igen.");
                 scanner.next();
                 continue;
             }
@@ -35,15 +35,12 @@ public class Yatzy {
         if ((numPlayers >= 1) && (numPlayers <= 4)) {
             for (int i = 0; i < players.length; i++) {
                 players[i] = new Player();
-                System.out.println("Spelare " + (i+1) + " ange ditt namn :"); // "Player " + (i+1) + " enter your name :" (?)
+                System.out.println("Spelare " + (i+1) + " ange ditt namn :");
                 String name = scanner.next();
                 players[i].name = name;
             }
 
-        } //else {
-//            System.out.println("Invalid input, try again.");
-//            createPlayers();
-//        }
+        }
 
         return players;
     }
@@ -54,9 +51,9 @@ public class Yatzy {
         boolean didSomeoneWin = isThereAWinner();
 
         if(didSomeoneWin) {
-            return "Vi har en vinnare! Vinnaren är " + this.winner + "'s";
+            return "Vi har en vinnare! Vinnaren ï¿½r " + this.winner + "'s";
         } else {
-            return "inte Över";
+            return "inte ï¿½ver";
         }
 
     }
@@ -72,7 +69,7 @@ public class Yatzy {
     //TODO fill in the scoreboard
     public void printScoreBoard() {
         System.out.println();
-        System.out.println("Här borde vara en resultattavla");
+        System.out.println("Hï¿½r borde vara en resultattavla");
         System.out.println();
     }
 }

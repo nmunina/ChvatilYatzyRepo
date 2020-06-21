@@ -18,8 +18,7 @@ public class DiceRoll {
 
 	//TODO calculate points from all 5 Dice
 	public static int getRoundScore(int[] reRollKept) {
-		//roundPoints = reRollKept[0] + reRollKept[1] + reRollKept[2] + reRollKept[3] + reRollKept[4];
-		roundPoints = Arrays.stream(reRollKept).sum(); // More compact, ready for testing
+		roundPoints = Arrays.stream(reRollKept).sum();
 		return roundPoints;
 	}
 		
@@ -30,11 +29,10 @@ public class DiceRoll {
 		int temp;
 		int[] firstKeep;
 
-		System.out.println("Vilka tärningar vill du spara? Skriv 1 for att spara eller 0 för att kasta. T.ex. 0 1 1 0 1 för att spara 2a, 3e och 5e tärningen");
+		System.out.println("Vilka tï¿½rningar vill du spara? Skriv 1 for att spara eller 0 fï¿½r att kasta. T.ex. 0 1 1 0 1 fï¿½r att spara 2a, 3e och 5e tï¿½rningen");
 
-		try	{// Store choices in str
+		try	{
 			String choice = scanner.nextLine();
-			// Split into string array
 
 			String[] splitChosen = choice.split(" ");
 
@@ -54,7 +52,7 @@ public class DiceRoll {
 				}
 			}
 		} catch (Exception e) {
-			System.out.println("Felaktig input, försök igen.");
+			System.out.println("Felaktig input, fï¿½rsï¿½k igen.");
 		}
 
 		firstKeep = fiveDice;

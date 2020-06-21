@@ -9,13 +9,8 @@ public class Player {
     public static int[] upperScore = {combinationScore[0], combinationScore[1],
     		combinationScore[2], combinationScore[3], combinationScore[4], 
     		combinationScore[5]};
-    
 
-    //Player player = new Player();
     public static void printPlayersScore(){
-//        for (int i = 0; i < combinationScore.length; i++) {
-//            score += combinationScore[i];
-//        }
         System.out.println("Total summa f�r spelare " + name + ": " + score);
     }
 
@@ -39,16 +34,4 @@ public class Player {
 		}
     	return scoreBonus;
     }
-
-
-
-//    //TODO player choses what dice to (re)roll
-//    public int[] choise() {
-//        // wich dice you want to reroll
-//        // numbers in the array
-//
-//        int[] firstRoll = new int[5];
-//
-//        return firstRoll;
-//    }
 }
